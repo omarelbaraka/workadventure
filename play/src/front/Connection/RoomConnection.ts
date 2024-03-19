@@ -429,7 +429,8 @@ export class RoomConnection implements RoomConnection {
                                 currentLiveStreamingNameStore.set(undefined);
                                 const scene = gameManager.getCurrentGameScene();
                                 scene.broadcastService.leaveSpace(subMessage.kickOffMessage.spaceName);
-                                iframeListener.sendLeaveMucEventToChatIframe(`${scene.roomUrl}/${slugify(name)}`);
+
+                                void iframeListener.sendLeaveMucEventToChatIframe(`${scene.roomUrl}/${slugify(name)}`);
                                 chatZoneLiveStore.set(false);
                                 break;
                             }
@@ -1326,7 +1327,7 @@ export class RoomConnection implements RoomConnection {
     }
 
     public emitAskPosition(uuid: string, playUri: string) {
-        const bytes = ClientToServerMessageTsProto.encode({
+        this.send({
             message: {
                 $case: "askPositionMessage",
                 askPositionMessage: {
@@ -1334,42 +1335,34 @@ export class RoomConnection implements RoomConnection {
                     playUri,
                 },
             },
-        }).finish();
-
-        this.socket.send(bytes);
+        });
     }
 
     public emitAddSpaceFilter(filter: AddSpaceFilterMessage) {
-        const bytes = ClientToServerMessageTsProto.encode({
+        this.send({
             message: {
                 $case: "addSpaceFilterMessage",
                 addSpaceFilterMessage: filter,
             },
-        }).finish();
-
-        this.socket.send(bytes);
+        });
     }
 
     public emitUpdateSpaceFilter(filter: UpdateSpaceFilterMessage) {
-        const bytes = ClientToServerMessageTsProto.encode({
+        this.send({
             message: {
                 $case: "updateSpaceFilterMessage",
                 updateSpaceFilterMessage: filter,
             },
-        }).finish();
-
-        this.socket.send(bytes);
+        });
     }
 
     public emitRemoveSpaceFilter(filter: RemoveSpaceFilterMessage) {
-        const bytes = ClientToServerMessageTsProto.encode({
+        this.send({
             message: {
                 $case: "removeSpaceFilterMessage",
                 removeSpaceFilterMessage: filter,
             },
-        }).finish();
-
-        this.socket.send(bytes);
+        });
     }
 
     public async queryJitsiJwtToken(jitsiRoom: string): Promise<JitsiJwtAnswer> {
