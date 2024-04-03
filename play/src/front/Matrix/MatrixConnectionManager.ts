@@ -20,6 +20,7 @@ type MatrixClientResult = Result<
 >;
 
 const matrixClient = new Deferred<MatrixClientResult>();
+
 let matrixLoginToken: string | undefined;
 
 /**

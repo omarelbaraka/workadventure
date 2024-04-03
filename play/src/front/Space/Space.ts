@@ -1,31 +1,31 @@
 import { SpaceInterface } from "./SpaceInterface";
 import { SpaceFilterAlreadyExistError, SpaceFilterDoesNotExistError, SpaceNameIsEmptyError } from "./Errors/SpaceError";
 import { SpaceFilter, SpaceFilterInterface } from "./SpaceFilter/SpaceFilter";
-import { SpaceEventEmitterInterface, SpaceFilterEventEmitterInterface } from "./SpaceEventEmitter/SpaceEventEmitterInterface";
+import {
+    SpaceEventEmitterInterface,
+    SpaceFilterEventEmitterInterface,
+} from "./SpaceEventEmitter/SpaceEventEmitterInterface";
 import { AllSapceEventEmitter } from "./SpaceProvider/SpaceStore";
-
 
 export const WORLD_SPACE_NAME = "allWorldUser";
 
-
 export class Space implements SpaceInterface {
     private name: string;
-    private spaceFilterEventEmitter: SpaceFilterEventEmitterInterface | undefined= undefined;
+    private spaceFilterEventEmitter: SpaceFilterEventEmitterInterface | undefined = undefined;
     private spaceEventEmitter: SpaceEventEmitterInterface | undefined = undefined;
 
     constructor(
         name: string,
         private metadata = new Map<string, unknown>(),
         allSpaceEventEmitter: AllSapceEventEmitter | undefined = undefined,
-        private filters: Map<string, SpaceFilterInterface> = new Map<string, SpaceFilterInterface>(),
-
+        private filters: Map<string, SpaceFilterInterface> = new Map<string, SpaceFilterInterface>()
     ) {
         if (name === "") throw new SpaceNameIsEmptyError();
         this.name = name;
 
-        if(!allSpaceEventEmitter)return; 
+        if (!allSpaceEventEmitter) return;
         const {
-            userJoinSpace ,
+            userJoinSpace,
             userLeaveSpace,
             updateSpaceMetadata,
             addSpaceFilter,
@@ -36,14 +36,14 @@ export class Space implements SpaceInterface {
             emitMuteEveryBodySpace,
             emitMuteParticipantIdSpace,
             emitMuteVideoEveryBodySpace,
-            emitMuteVideoParticipantIdSpace
+            emitMuteVideoParticipantIdSpace,
         } = allSpaceEventEmitter;
 
         this.spaceEventEmitter = {
             userJoinSpace,
             userLeaveSpace,
             updateSpaceMetadata,
-            emitJitsiParticipantId
+            emitJitsiParticipantId,
         };
         this.spaceFilterEventEmitter = {
             addSpaceFilter,
@@ -53,14 +53,13 @@ export class Space implements SpaceInterface {
             emitMuteEveryBodySpace,
             emitMuteParticipantIdSpace,
             emitMuteVideoEveryBodySpace,
-            emitMuteVideoParticipantIdSpace
+            emitMuteVideoParticipantIdSpace,
         };
-        debugger
         this.spaceEventEmitter?.userJoinSpace(this.name);
     }
 
     emitJitsiParticipantId(participantId: string): void {
-        this.spaceEventEmitter?.emitJitsiParticipantId(this.name,participantId)
+        this.spaceEventEmitter?.emitJitsiParticipantId(this.name, participantId);
     }
     getName(): string {
         return this.name;
@@ -76,7 +75,12 @@ export class Space implements SpaceInterface {
 
     watch(filterName: string): SpaceFilterInterface {
         if (this.filters.has(filterName)) throw new SpaceFilterAlreadyExistError(this.name, filterName);
-        const newFilter: SpaceFilterInterface = new SpaceFilter(filterName, this.name,undefined,this.spaceFilterEventEmitter);
+        const newFilter: SpaceFilterInterface = new SpaceFilter(
+            filterName,
+            this.name,
+            undefined,
+            this.spaceFilterEventEmitter
+        );
         this.filters.set(newFilter.getName(), newFilter);
         return newFilter;
     }

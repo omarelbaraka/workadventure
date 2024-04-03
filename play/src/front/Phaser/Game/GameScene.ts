@@ -24,7 +24,8 @@ import {
     EntityPermissions,
     GameMap,
     GameMapProperties,
-   isSuccess, WAMFileFormat,
+    isSuccess,
+    WAMFileFormat,
 } from "@workadventure/map-editor";
 import { userMessageManager } from "../../Administration/UserMessageManager";
 import { connectionManager } from "../../Connection/ConnectionManager";
@@ -117,11 +118,7 @@ import { embedScreenLayoutStore } from "../../Stores/EmbedScreensStore";
 import { highlightedEmbedScreen } from "../../Stores/HighlightedEmbedScreenStore";
 import type { AddPlayerEvent } from "../../Api/Events/AddPlayerEvent";
 import type { AskPositionEvent } from "../../Api/Events/AskPositionEvent";
-import {
-    _newChatMessageSubject,
-    chatVisibilityStore,
-    forceRefreshChatStore,
-} from "../../Stores/ChatStore";
+import { _newChatMessageSubject, chatVisibilityStore, forceRefreshChatStore } from "../../Stores/ChatStore";
 import type { HasPlayerMovedInterface } from "../../Api/Events/HasPlayerMovedInterface";
 import { gameSceneIsLoadedStore, gameSceneStore } from "../../Stores/GameSceneStore";
 import { myCameraBlockedStore, myMicrophoneBlockedStore } from "../../Stores/MyMediaStore";
@@ -1527,8 +1524,9 @@ export class GameScene extends DirtyScene {
                     await this.mapEditorModeManager?.updateMapToNewest(commandsToApply);
                 }
 
-                //TODO:Create SpaceManager
-                //TODO:Send Message for join space
+                const spaceStream = this.connection.getSpaceStreams();
+                const eventEmitter = this.connection.getSpaceEventEmitter();
+
 
                 const spaceProvider = LocalSpaceProviderSingleton.getInstance(eventEmitter);
                 StreamSpaceWatcherSingleton.getInstance(spaceStream);
@@ -1680,7 +1678,7 @@ export class GameScene extends DirtyScene {
                 // The joinMucRoomMessageStream stream is completed in the RoomConnection. No need to unsubscribe.
                 //eslint-disable-next-line rxjs/no-ignored-subscription, svelte/no-ignored-unsubscribe
                 this.connection.joinMucRoomMessageStream.subscribe((mucRoomDefinitionMessage) => {
-                   void iframeListener.sendJoinMucEventToChatIframe(
+                    void iframeListener.sendJoinMucEventToChatIframe(
                         mucRoomDefinitionMessage.url,
                         mucRoomDefinitionMessage.name,
                         mucRoomDefinitionMessage.type,

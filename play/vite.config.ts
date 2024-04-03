@@ -47,6 +47,14 @@ export default defineConfig(({ mode }) => {
                 modernPolyfills: ["web.structured-clone"],
             }),
         ],
+        optimizeDeps: {
+            include: ["olm"],
+            esbuildOptions: {
+                define: {
+                    global: "globalThis",
+                },
+            },
+        }
     };
 
     if (env.SENTRY_ORG && env.SENTRY_PROJECT && env.SENTRY_AUTH_TOKEN && env.SENTRY_RELEASE && env.SENTRY_ENVIRONMENT) {

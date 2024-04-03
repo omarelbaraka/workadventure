@@ -71,7 +71,6 @@
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",
     "@vitejs/plugin-legacy": "^2.3.1",
-    "@vitest/coverage-c8": "^0.29.1",
     "autoprefixer": "^10.4.4",
     "eslint": "^8.30.0",
     "eslint-import-resolver-typescript": "^3.5.3",
@@ -92,9 +91,7 @@
     "tslib": "^2.4.1",
     "typescript": "^4.9.4",
     "vite": "^3.2.8",
-    "vite-tsconfig-paths": "^3.5.1",
-    "vitest": "^0.29.1",
-    "vitest-mock-extended": "^1.0.9"
+    "vite-tsconfig-paths": "^3.5.1"
   },
   "dependencies": {
     "@16bits/nes.css": "^2.3.2",
@@ -171,6 +168,7 @@
     "tsx": "^4.7.0",
     "typesafe-i18n": "^5.14.0",
     "uuid": "^9.0.0",
+    "vitest": "^1.4.0",
     "zod": "^3.19.1"
   }
 }

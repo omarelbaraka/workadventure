@@ -1453,6 +1453,23 @@ export class RoomConnection implements RoomConnection {
         });
         return spaceFilter;
     }
+    public emitUserJoinSpace(spaceName: string) {
+        const spaceFilter: SpaceFilterMessage = {
+            filterName: "",
+            spaceName,
+            filter: undefined,
+        };
+        this.send({
+            message: {
+                $case: "watchSpaceMessage",
+                watchSpaceMessage: WatchSpaceMessage.fromPartial({
+                    spaceName,
+                    spaceFilter,
+                }),
+            },
+        });
+        return spaceFilter;
+    }
 
     public emitUnwatchSpaceLiveStreaming(spaceName: string) {
         this.send({
@@ -1649,6 +1666,72 @@ export class RoomConnection implements RoomConnection {
                 },
             },
         });
+    }
+    public getSpaceStreams(): SpaceStreams {
+        return {
+            addSpaceUserMessage: this.addSpaceUserMessageStream,
+            removeSpaceUserMessage: this.removeSpaceUserMessageStream,
+            updateSpaceUserMessage: this.updateSpaceUserMessageStream,
+            updateSpaceMetadataMessage: this.updateSpaceMetadataMessageStream,
+        };
+    }
+
+    public getSpaceEventEmitter(): SpaceFilterEventEmitterInterface & SpaceEventEmitterInterface {
+        return {
+            updateSpaceMetadata: (spaceName: string, metadata: Map<string, unknown>): void => {
+                const metadataMap = Object.fromEntries(metadata);
+                this.emitUpdateSpaceMetadata(spaceName, metadataMap);
+            },
+            userJoinSpace: (spaceName: string) => {
+                this.emitUserJoinSpace(spaceName);
+            },
+            userLeaveSpace: (spaceName: string) => {
+                this.emitUnwatchSpaceLiveStreaming(spaceName);
+            },
+            addSpaceFilter: (spaceFilter: SpaceFilterMessage) => {
+                this.emitAddSpaceFilter({
+                    spaceFilterMessage: {
+                        filterName: spaceFilter.filterName,
+                        spaceName: spaceFilter.spaceName,
+                    },
+                });
+            },
+            removeSpaceFilter: (spaceFilter: SpaceFilterMessage) => {
+                this.emitRemoveSpaceFilter({
+                    spaceFilterMessage: {
+                        spaceName: spaceFilter.spaceName,
+                        filterName: spaceFilter.filterName,
+                    },
+                });
+            },
+            updateSpaceFilter: (spaceFilter: SpaceFilterMessage) => {
+                this.emitUpdateSpaceFilter({
+                    spaceFilterMessage: {
+                        filter: spaceFilter.filter,
+                        spaceName: spaceFilter.spaceName,
+                        filterName: spaceFilter.filterName,
+                    },
+                });
+            },
+            emitJitsiParticipantId: (spaceName: string, JitsiParticipantId: string) => {
+                this.emitJitsiParticipantIdSpace(spaceName, JitsiParticipantId);
+            },
+            emitKickOffUserMessage: (spaceName: string, userId: string) => {
+                this.emitKickOffUserMessage(spaceName, userId);
+            },
+            emitMuteEveryBodySpace: (spaceName: string) => {
+                this.emitMuteEveryBodySpace(spaceName);
+            },
+            emitMuteVideoEveryBodySpace: (spaceName: string) => {
+                this.emitMuteVideoEveryBodySpace(spaceName);
+            },
+            emitMuteParticipantIdSpace: (spaceName: string, userId: string) => {
+                this.emitMuteParticipantIdSpace(spaceName, userId);
+            },
+            emitMuteVideoParticipantIdSpace: (spaceName: string, userId: string) => {
+                this.emitMuteVideoParticipantIdSpace(spaceName, userId);
+            },
+        };
     }
 
     private resetPingTimeout(): void {

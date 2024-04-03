@@ -1,12 +1,13 @@
-import { SpaceUser } from "@workadventure/messages";
+import { SpaceFilterInterface } from "./SpaceFilter/SpaceFilter";
 
 export interface SpaceInterface {
+emitJitsiParticipantId(participantId: string): void;
     getName(): string;
-    setMetadata(metadata: string): void;
-    getMetadata(): string;
-    addUser(user: SpaceUser): void;
-    getUsers(): SpaceUser[];
-    getUser(id: number): SpaceUser;
-    removeUser(user: SpaceUser): void;
-    updateUserData(user: Partial<SpaceUser>): void;
+    setMetadata(metadata: Map<string, unknown>): void;
+    getMetadata(): Map<string, unknown>;
+    getAllSpacesFilter(): SpaceFilterInterface[];
+    getSpaceFilter(filterName: string): SpaceFilterInterface;
+    watch(filterName: string): SpaceFilterInterface;
+    stopWatching(filterName: string): void;
+    destroy(): void;
 }

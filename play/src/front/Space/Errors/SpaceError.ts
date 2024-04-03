@@ -15,6 +15,24 @@ export class UserAlreadyExistInSpaceError extends Error {
 }
 export class UserDoesNotExistInSpaceError extends Error {
     constructor(spaceName: string, spaceUserName: string) {
-        super(`User ${spaceUserName}  already exist in  Space ${spaceName} `);
+        super(`User ${spaceUserName}  is not in  Space ${spaceName} `);
+    }
+}
+
+export class SpaceNameIsEmptyError extends Error {
+    constructor() {
+        super(`Space should not be empty`);
+    }
+}
+
+export class SpaceFilterAlreadyExistError extends Error {
+    constructor(spaceName: string, filterName: string) {
+        super(`filter ${filterName} already exists in space ${spaceName} `);
+    }
+}
+
+export class SpaceFilterDoesNotExistError extends Error {
+    constructor(spaceName: string, filterName: string) {
+        super(`filter ${filterName} does not exist in space ${spaceName} `);
     }
 }
