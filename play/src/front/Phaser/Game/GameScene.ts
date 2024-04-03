@@ -24,7 +24,7 @@ import {
     EntityPermissions,
     GameMap,
     GameMapProperties,
-    WAMFileFormat,
+   isSuccess, WAMFileFormat,
 } from "@workadventure/map-editor";
 import { userMessageManager } from "../../Administration/UserMessageManager";
 import { connectionManager } from "../../Connection/ConnectionManager";
@@ -111,8 +111,7 @@ import { followUsersColorStore, followUsersStore } from "../../Stores/FollowStor
 import { hideConnectionIssueMessage, showConnectionIssueMessage } from "../../Connection/AxiosUtils";
 import { StringUtils } from "../../Utils/StringUtils";
 import { startLayerNamesStore } from "../../Stores/StartLayerNamesStore";
-import { SimpleCoWebsite } from "../../WebRtc/CoWebsite/SimpleCoWebsite";
-import type { CoWebsite } from "../../WebRtc/CoWebsite/CoWebsite";
+
 import { SuperLoaderPlugin } from "../Services/SuperLoaderPlugin";
 import { embedScreenLayoutStore } from "../../Stores/EmbedScreensStore";
 import { highlightedEmbedScreen } from "../../Stores/HighlightedEmbedScreenStore";
@@ -120,7 +119,6 @@ import type { AddPlayerEvent } from "../../Api/Events/AddPlayerEvent";
 import type { AskPositionEvent } from "../../Api/Events/AskPositionEvent";
 import {
     _newChatMessageSubject,
-    _newChatMessageWritingStatusSubject,
     chatVisibilityStore,
     forceRefreshChatStore,
 } from "../../Stores/ChatStore";
@@ -191,6 +189,10 @@ import SpriteSheetFile = Phaser.Loader.FileTypes.SpriteSheetFile;
 import FILE_LOAD_ERROR = Phaser.Loader.Events.FILE_LOAD_ERROR;
 import { getCoWebSite, openCoWebSite } from "../../Chat/Utils";
 import { chatConnectionManager } from "../../Chat/Connection/ChatConnectionManager";
+import { LocalSpaceProviderSingleton } from "../../Space/SpaceProvider/SpaceStore";
+import { WORLD_SPACE_NAME } from "../../Space/Space";
+import { StreamSpaceWatcherSingleton } from "../../Space/SpaceWatcher/StreamSpaceWatcher";
+import { getMatrixClient } from "../../Matrix/MatrixConnectionManager";
 
 export interface GameSceneInitInterface {
     reconnecting: boolean;
@@ -524,6 +526,33 @@ export class GameScene extends DirtyScene {
 
     //hook create scene
     create(): void {
+        getMatrixClient()
+            .then(async (clientResult) => {
+                if (isSuccess(clientResult)) {
+                    const client = clientResult.value;
+                    const rooms = await client.getJoinedRooms();
+                    console.warn("rooms", rooms);
+                    console.warn("user id", client.getUserId());
+
+                    client.on("Room.timeline", (event, room, toStartOfTimeline, removed, data) => {
+                        console.warn("Room.timeline", event, room, toStartOfTimeline, removed, data);
+                    });
+
+                    client.on("RoomState.events", (event, state) => {
+                        console.warn("RoomState.events", event, state);
+                    });
+                } else {
+                    if (clientResult.error.type === "no-matrix-credentials") {
+                        console.warn("no matrix credentials");
+                    } else if (clientResult.error.type === "no-matrix-server") {
+                        console.warn("NO MATRIX SERVER CONFIGURED");
+                    } else {
+                        console.error("matrix error", clientResult.error.error);
+                    }
+                }
+            })
+            .catch((e) => console.error(e));
+
         this.input.topOnly = false;
         this.preloading = false;
         this.cleanupDone = false;
@@ -1501,6 +1530,13 @@ export class GameScene extends DirtyScene {
                 //TODO:Create SpaceManager
                 //TODO:Send Message for join space
 
+                const spaceProvider = LocalSpaceProviderSingleton.getInstance(eventEmitter);
+                StreamSpaceWatcherSingleton.getInstance(spaceStream);
+
+                spaceProvider.add("worldSpace");
+
+                spaceProvider.add(WORLD_SPACE_NAME);
+
                 this.tryOpenMapEditorWithToolEditorParameter();
 
                 this.subscribeToStores();
@@ -1644,7 +1680,7 @@ export class GameScene extends DirtyScene {
                 // The joinMucRoomMessageStream stream is completed in the RoomConnection. No need to unsubscribe.
                 //eslint-disable-next-line rxjs/no-ignored-subscription, svelte/no-ignored-unsubscribe
                 this.connection.joinMucRoomMessageStream.subscribe((mucRoomDefinitionMessage) => {
-                    iframeListener.sendJoinMucEventToChatIframe(
+                   void iframeListener.sendJoinMucEventToChatIframe(
                         mucRoomDefinitionMessage.url,
                         mucRoomDefinitionMessage.name,
                         mucRoomDefinitionMessage.type,
@@ -1655,7 +1691,7 @@ export class GameScene extends DirtyScene {
                 // The leaveMucRoomMessageStream stream is completed in the RoomConnection. No need to unsubscribe.
                 //eslint-disable-next-line rxjs/no-ignored-subscription, svelte/no-ignored-unsubscribe
                 this.connection.leaveMucRoomMessageStream.subscribe((leaveMucRoomMessage) => {
-                    iframeListener.sendLeaveMucEventToChatIframe(leaveMucRoomMessage.url);
+                    void iframeListener.sendLeaveMucEventToChatIframe(leaveMucRoomMessage.url);
                 });
 
                 // The worldFullMessageStream stream is completed in the RoomConnection. No need to unsubscribe.

@@ -996,13 +996,19 @@ class AdminApi implements AdminInterface {
         }
         return;
     }
-    async getMembersOfWorld(worldSlug: string, offset = 0): Promise<FetchMemberDataForAWorld> {
+
+    //TODO : @openapi doc
+    async getMembersOfWorld(playUri : string, searchText : string = ""): Promise<FetchMemberDataForAWorld> {
         const response: { total: number; data: UserData[] } = await axios.get(
             `${ADMIN_API_URL}/api/worlds/${worldSlug}/members`,
             {
                 headers: { Authorization: `${ADMIN_API_TOKEN}` },
             }
         );
+
+
+        //TODO: Validate response with zod
+
         return {
             total: response.total,
             members: response.data,
