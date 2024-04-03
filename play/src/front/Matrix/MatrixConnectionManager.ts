@@ -57,12 +57,31 @@ async function instantiateMatrixClient(url: string, userUuid: string): Promise<v
 
     if (accessToken === null && refreshToken === null && matrixLoginToken === undefined) {
         // No access token, no refresh token, no login token. We can't connect.
-        matrixClient.resolve(
-            failure({
-                type: "no-matrix-credentials",
+        //guest access
+        debugger;
+        const client  = createClient({
+            baseUrl : url
+        });
+        try{
+            const creds = await client
+            .registerGuest({
+                body: {
+                    initial_device_display_name: localUserStore.getName()||"",
+                    
+                },
             })
-        );
-        return;
+        }catch(err){
+            logger.error("Failed to register as guest", err);
+
+            matrixClient.resolve(
+                failure({
+                    type: "no-matrix-credentials",
+                })
+            );
+        }
+
+    
+       
     }
 
     let oldUserId: string | null = null;
