@@ -1,112 +1,52 @@
-import { writable, get } from "svelte/store";
-import { SpaceUser } from "@workadventure/messages";
 import { SpaceInterface } from "../SpaceInterface";
+import { SpaceAlreadyExistError, SpaceDoesNotExistError } from "../Errors/SpaceError";
+import { Space } from "../Space";
 import {
-    SpaceAlreadyExistError,
-    SpaceDoesNotExistError,
-    UserAlreadyExistInSpaceError,
-    UserDoesNotExistInSpaceError,
-} from "../Errors/SpaceError";
+    SpaceEventEmitterInterface,
+    SpaceFilterEventEmitterInterface,
+} from "../SpaceEventEmitter/SpaceEventEmitterInterface";
 import { SpaceProviderInterface } from "./SpacerProviderInterface";
 
-export function createSpaceStore(
-    spaces: Map<string, SpaceInterface> = new Map<string, SpaceInterface>()
-): SpaceProviderInterface {
-    const value = writable<Map<string, SpaceInterface>>(spaces);
-    const { update, subscribe } = value;
+export type AllSapceEventEmitter = (SpaceFilterEventEmitterInterface & SpaceEventEmitterInterface) | undefined;
+export class LocalSpaceProvider implements SpaceProviderInterface {
+    constructor(
+        private allSpaceEventEmitter: AllSapceEventEmitter = undefined,
+        private spaces: Map<string, SpaceInterface> = new Map<string, SpaceInterface>()
+    ) {
+    
+    }
 
-    return {
-        subscribe,
-        add(newSpace: SpaceInterface): void {
-            update((spaceStore: Map<string, SpaceInterface>) => {
-                if (this.spaceExistInStore(spaceStore, newSpace.getName()))
-                    throw new SpaceAlreadyExistError(newSpace.getName());
-                spaceStore.set(newSpace.getName(), newSpace);
-                return spaceStore;
-            });
-        },
-        exist(spaceName: string): boolean {
-            return this.spaceExistInStore(get(value), spaceName);
-        },
-        spaceExistInStore(store: Map<string, SpaceInterface>, spaceName: string): boolean {
-            return store.has(spaceName);
-        },
-
-        delete(spaceName: string): void {
-            update((spaceStore: Map<string, SpaceInterface>) => {
-                if (!this.spaceExistInStore(spaceStore, spaceName)) throw new SpaceDoesNotExistError(spaceName);
-                return Array.from(get(value), ([key, value]) => ({ key, value })).reduce((storeAcc, { key, value }) => {
-                    if (key === spaceName) return storeAcc;
-                    storeAcc.set(key, value);
-                    return storeAcc;
-                }, new Map<string, SpaceInterface>());
-            });
-        },
-        getAll(): SpaceInterface[] {
-            return get(value);
-        },
-        get(spaceName: string): SpaceInterface {
-            //verifier space exist
-            return get(value).get(spaceName);
-        },
-        updateMetadata(spaceName: string, metadata: string): void {
-            update((spaceStore: Map<string, SpaceInterface>): Map<string, SpaceInterface> => {
-                if (!this.spaceExistInStore(spaceStore, spaceName)) throw new SpaceDoesNotExistError(spaceName);
-                const spaceToUpdate: SpaceInterface = spaceStore.get(spaceName);
-                spaceToUpdate.setMetadata(metadata);
-                //spaceStore.set(spaceName,spaceToUpdate);
-                return spaceStore;
-            });
-        },
-
-        addUserToSpace(spaceName: string, userToAdd: SpaceUser): void {
-            update((spaceStore: Map<string, SpaceInterface>): Map<string, SpaceInterface> => {
-                if (!this.spaceExistInStore(spaceStore, spaceName)) throw new SpaceDoesNotExistError(spaceName);
-                const spaceToUpdate: SpaceInterface = spaceStore.get(spaceName);
-                if (this.userExistInSpace(userToAdd, spaceName, spaceStore))
-                    throw new UserAlreadyExistInSpaceError(spaceName, userToAdd.name);
-                spaceToUpdate.addUser(userToAdd);
-                spaceStore.set(spaceName, spaceToUpdate);
-                return spaceStore;
-            });
-        },
-        userExistInSpace({ id: userId }: SpaceUser, spaceName, store: Map<string, SpaceInterface> = get(value)) {
-            if (!this.spaceExistInStore(store, spaceName)) throw new SpaceDoesNotExistError(spaceName);
-            return store
-                .get(spaceName)
-                .getUsers()
-                .some((user: SpaceUser): boolean => userId === user.id);
-        },
-        removeUserToSpace(spaceName: string, user: SpaceUser): void {
-            update((spaceStore: Map<string, SpaceInterface>): Map<string, SpaceInterface> => {
-                if (!this.spaceExistInStore(spaceStore, spaceName)) throw new SpaceDoesNotExistError(spaceName);
-                const spaceToUpdate: SpaceInterface = spaceStore.get(spaceName);
-                if (!this.userExistInSpace(user, spaceName, spaceStore))
-                    throw new UserDoesNotExistInSpaceError(spaceName, user.name);
-                spaceToUpdate.removeUser(user);
-                spaceStore.set(spaceName, spaceToUpdate);
-                return spaceStore;
-            });
-        },
-
-        updateUserData(spaceName: string, userData: Required<"id">): void {
-            update((spaceStore: Map<string, SpaceInterface>): Map<string, SpaceInterface> => {
-                if (!this.spaceExistInStore(spaceStore, spaceName)) throw new SpaceDoesNotExistError(spaceName);
-                const spaceToUpdate: SpaceInterface = spaceStore.get(spaceName);
-                if (!this.userExistInSpace(userData, spaceName, spaceStore))
-                    throw new UserDoesNotExistInSpaceError(spaceName, userData.name || userData.id);
-
-                let userToUpdate = spaceToUpdate.getUser(userData.id);
-                userToUpdate = {
-                    ...userToUpdate,
-                    ...userData,
-                };
-                spaceToUpdate.updateUserData(userToUpdate);
-                spaceStore.set(spaceName, spaceToUpdate);
-                return spaceStore;
-            });
-        },
-    };
+    add(spaceName: string, metadata: Map<string, unknown> = new Map<string, unknown>()): SpaceInterface {
+        if (this.exist(spaceName)) throw new SpaceAlreadyExistError(spaceName);
+        const newSpace: SpaceInterface = new Space(spaceName, metadata, this.allSpaceEventEmitter);
+        this.spaces.set(newSpace.getName(), newSpace);
+        return newSpace;
+    }
+    exist(spaceName: string): boolean {
+        return this.spaces.has(spaceName);
+    }
+    delete(spaceName: string): void {
+        const space: SpaceInterface | undefined = this.spaces.get(spaceName);
+        if (!space) throw new SpaceDoesNotExistError(spaceName);
+        space.destroy();
+        this.spaces.delete(spaceName);
+    }
+    getAll(): SpaceInterface[] {
+        return Array.from(this.spaces.values());
+    }
+    get(spaceName: string): SpaceInterface {
+        const space: SpaceInterface | undefined = this.spaces.get(spaceName);
+        if (!space) throw new SpaceDoesNotExistError(spaceName);
+        return space;
+    }
 }
 
-export const spaceStore = createSpaceStore();
+export class LocalSpaceProviderSingleton {
+    private static instance: LocalSpaceProvider | null = null;
+    static getInstance(spaceEventEmitter: AllSapceEventEmitter = undefined): LocalSpaceProvider {
+        if (this.instance === null) {
+            this.instance = new LocalSpaceProvider(spaceEventEmitter);
+        }
+        return this.instance;
+    }
+}

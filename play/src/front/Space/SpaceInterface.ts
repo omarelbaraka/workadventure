@@ -8,5 +8,5 @@ export interface SpaceInterface {
     getUsers(): SpaceUser[];
     getUser(id: number): SpaceUser;
     removeUser(user: SpaceUser): void;
-    updateUserData(user: Required<Partial<SpaceUser>, "id">): void;
+    updateUserData(user: Partial<SpaceUser>): void;
 }
