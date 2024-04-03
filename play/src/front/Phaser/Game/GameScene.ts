@@ -189,6 +189,8 @@ import DOMElement = Phaser.GameObjects.DOMElement;
 import Tileset = Phaser.Tilemaps.Tileset;
 import SpriteSheetFile = Phaser.Loader.FileTypes.SpriteSheetFile;
 import FILE_LOAD_ERROR = Phaser.Loader.Events.FILE_LOAD_ERROR;
+import { getCoWebSite, openCoWebSite } from "../../Chat/Utils";
+import { chatConnectionManager } from "../../Chat/Connection/ChatConnectionManager";
 
 export interface GameSceneInitInterface {
     reconnecting: boolean;
@@ -1732,7 +1734,7 @@ export class GameScene extends DirtyScene {
                 //eslint-disable-next-line rxjs/no-ignored-subscription, svelte/no-ignored-unsubscribe
                 this.connection.xmppSettingsMessageStream.subscribe((xmppSettingsMessage) => {
                     if (xmppSettingsMessage) {
-                        iframeListener.sendXmppSettingsToChatIframe(xmppSettingsMessage);
+                        chatConnectionManager.initXmppSettings(xmppSettingsMessage);
                     }
                 });
 
@@ -2425,12 +2427,15 @@ ${escapedMessage}
                 _newChatMessageSubject.next(text);
             })
         );
-
-        this.iframeSubscriptionList.push(
+/**
+ *         this.iframeSubscriptionList.push(
             iframeListener.newChatMessageWritingStatusStream.subscribe((status) => {
                 _newChatMessageWritingStatusSubject.next(status);
             })
         );
+ *
+ *
+ */
 
         this.iframeSubscriptionList.push(
             iframeListener.disablePlayerControlStream.subscribe(() => {
@@ -2658,37 +2663,11 @@ ${escapedMessage}
         );
 
         iframeListener.registerAnswerer("openCoWebsite", async (openCoWebsite, source) => {
-            if (!source) {
-                throw new Error("Unknown query source");
-            }
-
-            const coWebsite: SimpleCoWebsite = new SimpleCoWebsite(
-                new URL(openCoWebsite.url, iframeListener.getBaseUrlFromSource(source)),
-                openCoWebsite.allowApi,
-                openCoWebsite.allowPolicy,
-                openCoWebsite.widthPercent,
-                openCoWebsite.closable
-            );
-
-            coWebsiteManager.addCoWebsiteToStore(coWebsite, openCoWebsite.position);
-
-            if (openCoWebsite.lazy === undefined || !openCoWebsite.lazy) {
-                await coWebsiteManager.loadCoWebsite(coWebsite);
-            }
-
-            return {
-                id: coWebsite.getId(),
-            };
+            return openCoWebSite(openCoWebsite,source);
         });
 
         iframeListener.registerAnswerer("getCoWebsites", () => {
-            const coWebsites = coWebsiteManager.getCoWebsites();
-
-            return coWebsites.map((coWebsite: CoWebsite) => {
-                return {
-                    id: coWebsite.getId(),
-                };
-            });
+           return getCoWebSite();
         });
 
         iframeListener.registerAnswerer("closeCoWebsite", (coWebsiteId) => {
