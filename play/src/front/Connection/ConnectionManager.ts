@@ -1,5 +1,5 @@
 import * as Sentry from "@sentry/svelte";
-import type { AvailabilityStatus } from "@workadventure/messages";
+import type { AvailabilityStatus, MemberData } from "@workadventure/messages";
 import {
     ErrorApiErrorData,
     ErrorApiRetryData,
@@ -517,7 +517,7 @@ class ConnectionManager {
         this.authToken = authToken;
 
         if (matrixServerUrl) {
-            setMatrixServerDetails(matrixServerUrl);
+            setMatrixServerDetails(matrixServerUrl,userUuid);
         } else {
             noMatrixServerUrl();
         }

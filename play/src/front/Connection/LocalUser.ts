@@ -31,5 +31,10 @@ export function areCharacterTexturesValid(value: string[] | null): boolean {
 }
 
 export class LocalUser {
-    constructor(public readonly uuid: string, public email: string | null = null) {}
+    constructor(
+        public readonly uuid: string,
+        public email: string | null = null,
+        public matrixUserId: string | null = null,
+        public isMatrixRegistered: boolean = false
+    ) {}
 }
