@@ -1791,3 +1791,311 @@ Exception: Error while initialising OIDC provider 'oidc-oidc-server-mock'
 2024-04-03 22:09:38,060 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-8 - Rotating notifications, handling 0 rows
 2024-04-03 22:09:38,061 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-8 - Rotating notifications, deleted 0 push actions
 2024-04-03 22:09:39,656 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-8 - Dropped 0 items from caches
+2024-04-03 22:10:08,047 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-9 - Rotating notifications
+2024-04-03 22:10:08,047 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-9 - Rotating notifications up to: 1
+2024-04-03 22:10:08,048 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-9 - Rotating notifications, handling 0 rows
+2024-04-03 22:10:08,049 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-9 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:10:09,658 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-9 - Dropped 0 items from caches
+2024-04-03 22:10:09,836 - synapse.app.homeserver - 71 - INFO - phone_stats_home-0 - Gathering stats for reporting
+2024-04-03 22:10:09,840 - synapse.storage.databases.main.metrics - 399 - INFO - generate_user_daily_visits-0 - Calling _generate_user_daily_visits
+2024-04-03 22:10:09,894 - synapse.app.homeserver - 159 - INFO - phone_stats_home-0 - Reporting stats to https://matrix.org/report-usage-stats/push: {'memory_rss': 180808, 'cpu_average': 2, 'homeserver': 'matrix.workadventure.localhost', 'server_context': None, 'timestamp': 1712182209, 'uptime_seconds': 302, 'python_version': '3.11.8', 'total_users': 2, 'total_nonbridged_users': 2, 'daily_user_type_native': 1, 'daily_user_type_guest': 1, 'daily_user_type_bridged': 0, 'total_room_count': 0, 'daily_active_users': 0, 'monthly_active_users': 0, 'daily_active_e2ee_rooms': 0, 'daily_e2ee_messages': 0, 'daily_sent_e2ee_messages': 0, 'daily_active_rooms': 0, 'daily_messages': 0, 'daily_sent_messages': 0, 'r30v2_users_ios': 0, 'r30v2_users_android': 0, 'r30v2_users_web': 0, 'r30v2_users_electron': 0, 'r30v2_users_all': 0, 'cache_factor': 0.5, 'event_cache_size': 10240, 'database_engine': 'sqlite3', 'database_server_version': '3.40.1', 'log_level': 'INFO'}
+2024-04-03 22:10:10,128 - synapse.http.client - 419 - INFO - phone_stats_home-0 - Received response to PUT https://matrix.org/report-usage-stats/push: 200
+2024-04-03 22:10:12,638 - twisted - 282 - INFO - sentinel - Timing out client: IPv6Address(type='TCP', host='::ffff:172.31.0.5', port=58984, flowInfo=0, scopeID=0)
+2024-04-03 22:10:31,473 - synapse.handlers.register - 515 - INFO - POST-26 - Auto-joining @2:matrix.workadventure.localhost to #exampleroom:example.com
+2024-04-03 22:10:38,047 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-10 - Rotating notifications
+2024-04-03 22:10:38,048 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-10 - Rotating notifications up to: 1
+2024-04-03 22:10:38,048 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-10 - Rotating notifications, handling 0 rows
+2024-04-03 22:10:38,049 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-10 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:10:39,655 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-10 - Dropped 0 items from caches
+2024-04-03 22:10:41,590 - synapse.http.federation.matrix_federation_agent - 371 - INFO - POST-26 - Failed to connect to example.com:8448: HostnameAddress(hostname=b'example.com', port=8448)
+2024-04-03 22:10:41,592 - synapse.http.matrixfederationclient - 799 - INFO - POST-26 - {GET-O-5} [example.com] Request failed: GET matrix-federation://example.com/_matrix/federation/v1/query/directory?room_alias=%23exampleroom%3Aexample.com: ConnectingCancelledError(HostnameAddress(hostname=b'example.com', port=8448))
+2024-04-03 22:10:41,593 - synapse.handlers.register - 593 - ERROR - POST-26 - Failed to join new user to '#exampleroom:example.com': SynapseError('502: Failed to fetch alias')
+2024-04-03 22:10:41,596 - synapse.handlers.register - 515 - INFO - POST-26 - Auto-joining @2:matrix.workadventure.localhost to #anotherexampleroom:example.com
+2024-04-03 22:10:43,643 - synapse.metrics._gc - 127 - INFO - sentinel - Collecting gc 1
+2024-04-03 22:10:51,610 - synapse.http.federation.matrix_federation_agent - 371 - INFO - POST-26 - Failed to connect to example.com:8448: HostnameAddress(hostname=b'example.com', port=8448)
+2024-04-03 22:10:51,613 - synapse.http.matrixfederationclient - 799 - INFO - POST-26 - {GET-O-6} [example.com] Request failed: GET matrix-federation://example.com/_matrix/federation/v1/query/directory?room_alias=%23anotherexampleroom%3Aexample.com: ConnectingCancelledError(HostnameAddress(hostname=b'example.com', port=8448))
+2024-04-03 22:10:51,613 - synapse.handlers.register - 593 - ERROR - POST-26 - Failed to join new user to '#anotherexampleroom:example.com': SynapseError('502: Failed to fetch alias')
+2024-04-03 22:10:51,677 - synapse.access.http.8008 - 472 - INFO - POST-26 - 192.168.65.1 - 8008 - {None} Processed request: 20.392sec/0.003sec (0.226sec, 0.017sec) (0.017sec/0.095sec/7) 478B 200 "POST /_matrix/client/v3/register?kind=guest HTTP/1.1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" [0 dbevts]
+2024-04-03 22:11:08,060 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-11 - Rotating notifications
+2024-04-03 22:11:08,070 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-11 - Rotating notifications up to: 1
+2024-04-03 22:11:08,072 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-11 - Rotating notifications, handling 0 rows
+2024-04-03 22:11:08,075 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-11 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:11:09,656 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-11 - Dropped 0 items from caches
+2024-04-03 22:11:38,046 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-12 - Rotating notifications
+2024-04-03 22:11:38,047 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-12 - Rotating notifications up to: 1
+2024-04-03 22:11:38,048 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-12 - Rotating notifications, handling 0 rows
+2024-04-03 22:11:38,049 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-12 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:11:39,656 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-12 - Dropped 0 items from caches
+2024-04-03 22:11:42,813 - synapse.handlers.register - 515 - INFO - POST-32 - Auto-joining @3:matrix.workadventure.localhost to #exampleroom:example.com
+2024-04-03 22:11:52,871 - synapse.http.federation.matrix_federation_agent - 371 - INFO - POST-32 - Failed to connect to example.com:8448: HostnameAddress(hostname=b'example.com', port=8448)
+2024-04-03 22:11:52,873 - synapse.http.matrixfederationclient - 799 - INFO - POST-32 - {GET-O-7} [example.com] Request failed: GET matrix-federation://example.com/_matrix/federation/v1/query/directory?room_alias=%23exampleroom%3Aexample.com: ConnectingCancelledError(HostnameAddress(hostname=b'example.com', port=8448))
+2024-04-03 22:11:52,874 - synapse.handlers.register - 593 - ERROR - POST-32 - Failed to join new user to '#exampleroom:example.com': SynapseError('502: Failed to fetch alias')
+2024-04-03 22:11:52,876 - synapse.handlers.register - 515 - INFO - POST-32 - Auto-joining @3:matrix.workadventure.localhost to #anotherexampleroom:example.com
+2024-04-03 22:12:02,891 - synapse.http.federation.matrix_federation_agent - 371 - INFO - POST-32 - Failed to connect to example.com:8448: HostnameAddress(hostname=b'example.com', port=8448)
+2024-04-03 22:12:02,894 - synapse.http.matrixfederationclient - 799 - INFO - POST-32 - {GET-O-8} [example.com] Request failed: GET matrix-federation://example.com/_matrix/federation/v1/query/directory?room_alias=%23anotherexampleroom%3Aexample.com: ConnectingCancelledError(HostnameAddress(hostname=b'example.com', port=8448))
+2024-04-03 22:12:02,894 - synapse.handlers.register - 593 - ERROR - POST-32 - Failed to join new user to '#anotherexampleroom:example.com': SynapseError('502: Failed to fetch alias')
+2024-04-03 22:12:02,915 - synapse.access.http.8008 - 472 - INFO - POST-32 - 192.168.65.1 - 8008 - {None} Processed request: 20.209sec/0.001sec (0.099sec, 0.015sec) (0.006sec/0.086sec/7) 478B 200 "POST /_matrix/client/v3/register?kind=guest HTTP/1.1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" [0 dbevts]
+2024-04-03 22:12:08,049 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-13 - Rotating notifications
+2024-04-03 22:12:08,049 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-13 - Rotating notifications up to: 1
+2024-04-03 22:12:08,050 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-13 - Rotating notifications, handling 0 rows
+2024-04-03 22:12:08,051 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-13 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:12:09,661 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-13 - Dropped 0 items from caches
+2024-04-03 22:12:38,059 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-14 - Rotating notifications
+2024-04-03 22:12:38,061 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-14 - Rotating notifications up to: 1
+2024-04-03 22:12:38,061 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-14 - Rotating notifications, handling 0 rows
+2024-04-03 22:12:38,063 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-14 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:12:39,655 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-14 - Dropped 0 items from caches
+2024-04-03 22:12:47,628 - synapse.handlers.register - 515 - INFO - POST-39 - Auto-joining @4:matrix.workadventure.localhost to #exampleroom:example.com
+2024-04-03 22:12:57,696 - synapse.http.federation.matrix_federation_agent - 371 - INFO - POST-39 - Failed to connect to example.com:8448: HostnameAddress(hostname=b'example.com', port=8448)
+2024-04-03 22:12:57,704 - synapse.http.matrixfederationclient - 799 - INFO - POST-39 - {GET-O-9} [example.com] Request failed: GET matrix-federation://example.com/_matrix/federation/v1/query/directory?room_alias=%23exampleroom%3Aexample.com: ConnectingCancelledError(HostnameAddress(hostname=b'example.com', port=8448))
+2024-04-03 22:12:57,705 - synapse.handlers.register - 593 - ERROR - POST-39 - Failed to join new user to '#exampleroom:example.com': SynapseError('502: Failed to fetch alias')
+2024-04-03 22:12:57,715 - synapse.handlers.register - 515 - INFO - POST-39 - Auto-joining @4:matrix.workadventure.localhost to #anotherexampleroom:example.com
+2024-04-03 22:13:07,734 - synapse.http.federation.matrix_federation_agent - 371 - INFO - POST-39 - Failed to connect to example.com:8448: HostnameAddress(hostname=b'example.com', port=8448)
+2024-04-03 22:13:07,737 - synapse.http.matrixfederationclient - 799 - INFO - POST-39 - {GET-O-10} [example.com] Request failed: GET matrix-federation://example.com/_matrix/federation/v1/query/directory?room_alias=%23anotherexampleroom%3Aexample.com: ConnectingCancelledError(HostnameAddress(hostname=b'example.com', port=8448))
+2024-04-03 22:13:07,738 - synapse.handlers.register - 593 - ERROR - POST-39 - Failed to join new user to '#anotherexampleroom:example.com': SynapseError('502: Failed to fetch alias')
+2024-04-03 22:13:07,760 - synapse.access.http.8008 - 472 - INFO - POST-39 - 192.168.65.1 - 8008 - {None} Processed request: 20.201sec/0.003sec (0.105sec, 0.006sec) (0.021sec/0.026sec/7) 478B 200 "POST /_matrix/client/v3/register?kind=guest HTTP/1.1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" [0 dbevts]
+2024-04-03 22:13:08,044 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-15 - Rotating notifications
+2024-04-03 22:13:08,045 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-15 - Rotating notifications up to: 1
+2024-04-03 22:13:08,045 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-15 - Rotating notifications, handling 0 rows
+2024-04-03 22:13:08,047 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-15 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:13:09,654 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-15 - Dropped 0 items from caches
+2024-04-03 22:13:38,047 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-16 - Rotating notifications
+2024-04-03 22:13:38,048 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-16 - Rotating notifications up to: 1
+2024-04-03 22:13:38,048 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-16 - Rotating notifications, handling 0 rows
+2024-04-03 22:13:38,049 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-16 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:13:39,657 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-16 - Dropped 0 items from caches
+2024-04-03 22:14:07,797 - twisted - 282 - INFO - sentinel - Timing out client: IPv6Address(type='TCP', host='::ffff:172.31.0.5', port=40140, flowInfo=0, scopeID=0)
+2024-04-03 22:14:08,057 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-17 - Rotating notifications
+2024-04-03 22:14:08,059 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-17 - Rotating notifications up to: 1
+2024-04-03 22:14:08,059 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-17 - Rotating notifications, handling 0 rows
+2024-04-03 22:14:08,061 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-17 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:14:09,656 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-17 - Dropped 0 items from caches
+2024-04-03 22:14:38,057 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-18 - Rotating notifications
+2024-04-03 22:14:38,059 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-18 - Rotating notifications up to: 1
+2024-04-03 22:14:38,060 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-18 - Rotating notifications, handling 0 rows
+2024-04-03 22:14:38,061 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-18 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:14:39,655 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-18 - Dropped 0 items from caches
+2024-04-03 22:15:08,048 - synapse.storage.databases.main.event_push_actions - 1167 - INFO - event_push_action_stream_orderings-0 - Searching for stream ordering 1 month ago
+2024-04-03 22:15:08,050 - synapse.storage.databases.main.event_push_actions - 1171 - INFO - event_push_action_stream_orderings-0 - Found stream ordering 1 month ago: it's 0
+2024-04-03 22:15:08,050 - synapse.storage.databases.main.event_push_actions - 1174 - INFO - event_push_action_stream_orderings-0 - Searching for stream ordering 1 day ago
+2024-04-03 22:15:08,050 - synapse.storage.databases.main.event_push_actions - 1178 - INFO - event_push_action_stream_orderings-0 - Found stream ordering 1 day ago: it's 0
+2024-04-03 22:15:08,052 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-19 - Rotating notifications
+2024-04-03 22:15:08,052 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-19 - Rotating notifications up to: 1
+2024-04-03 22:15:08,053 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-19 - Rotating notifications, handling 0 rows
+2024-04-03 22:15:08,054 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-19 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:15:09,655 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-19 - Dropped 0 items from caches
+2024-04-03 22:15:09,834 - synapse.storage.databases.main.metrics - 399 - INFO - generate_user_daily_visits-1 - Calling _generate_user_daily_visits
+2024-04-03 22:15:21,829 - synapse.handlers.register - 515 - INFO - POST-51 - Auto-joining @5:matrix.workadventure.localhost to #exampleroom:example.com
+2024-04-03 22:15:31,912 - synapse.http.federation.matrix_federation_agent - 371 - INFO - POST-51 - Failed to connect to example.com:8448: HostnameAddress(hostname=b'example.com', port=8448)
+2024-04-03 22:15:31,927 - synapse.http.matrixfederationclient - 799 - INFO - POST-51 - {GET-O-11} [example.com] Request failed: GET matrix-federation://example.com/_matrix/federation/v1/query/directory?room_alias=%23exampleroom%3Aexample.com: ConnectingCancelledError(HostnameAddress(hostname=b'example.com', port=8448))
+2024-04-03 22:15:31,933 - synapse.handlers.register - 593 - ERROR - POST-51 - Failed to join new user to '#exampleroom:example.com': SynapseError('502: Failed to fetch alias')
+2024-04-03 22:15:31,940 - synapse.handlers.register - 515 - INFO - POST-51 - Auto-joining @5:matrix.workadventure.localhost to #anotherexampleroom:example.com
+2024-04-03 22:15:38,045 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-20 - Rotating notifications
+2024-04-03 22:15:38,046 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-20 - Rotating notifications up to: 1
+2024-04-03 22:15:38,046 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-20 - Rotating notifications, handling 0 rows
+2024-04-03 22:15:38,048 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-20 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:15:39,655 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-20 - Dropped 0 items from caches
+2024-04-03 22:15:41,956 - synapse.http.federation.matrix_federation_agent - 371 - INFO - POST-51 - Failed to connect to example.com:8448: HostnameAddress(hostname=b'example.com', port=8448)
+2024-04-03 22:15:41,960 - synapse.http.matrixfederationclient - 799 - INFO - POST-51 - {GET-O-12} [example.com] Request failed: GET matrix-federation://example.com/_matrix/federation/v1/query/directory?room_alias=%23anotherexampleroom%3Aexample.com: ConnectingCancelledError(HostnameAddress(hostname=b'example.com', port=8448))
+2024-04-03 22:15:41,960 - synapse.handlers.register - 593 - ERROR - POST-51 - Failed to join new user to '#anotherexampleroom:example.com': SynapseError('502: Failed to fetch alias')
+2024-04-03 22:15:41,980 - synapse.access.http.8008 - 472 - INFO - POST-51 - 192.168.65.1 - 8008 - {None} Processed request: 20.351sec/0.002sec (0.175sec, 0.008sec) (0.013sec/0.155sec/7) 478B 200 "POST /_matrix/client/v3/register?kind=guest HTTP/1.1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" [0 dbevts]
+2024-04-03 22:16:08,045 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-21 - Rotating notifications
+2024-04-03 22:16:08,046 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-21 - Rotating notifications up to: 1
+2024-04-03 22:16:08,047 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-21 - Rotating notifications, handling 0 rows
+2024-04-03 22:16:08,048 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-21 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:16:09,656 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-21 - Dropped 0 items from caches
+2024-04-03 22:16:38,047 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-22 - Rotating notifications
+2024-04-03 22:16:38,049 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-22 - Rotating notifications up to: 1
+2024-04-03 22:16:38,049 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-22 - Rotating notifications, handling 0 rows
+2024-04-03 22:16:38,050 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-22 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:16:39,654 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-22 - Dropped 0 items from caches
+2024-04-03 22:16:41,982 - twisted - 282 - INFO - sentinel - Timing out client: IPv6Address(type='TCP', host='::ffff:172.31.0.5', port=51082, flowInfo=0, scopeID=0)
+2024-04-03 22:17:08,056 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-23 - Rotating notifications
+2024-04-03 22:17:08,089 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-23 - Rotating notifications up to: 1
+2024-04-03 22:17:08,090 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-23 - Rotating notifications, handling 0 rows
+2024-04-03 22:17:08,102 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-23 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:17:09,656 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-23 - Dropped 0 items from caches
+2024-04-03 22:17:38,046 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-24 - Rotating notifications
+2024-04-03 22:17:38,047 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-24 - Rotating notifications up to: 1
+2024-04-03 22:17:38,047 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-24 - Rotating notifications, handling 0 rows
+2024-04-03 22:17:38,048 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-24 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:17:39,656 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-24 - Dropped 0 items from caches
+2024-04-03 22:18:08,044 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-25 - Rotating notifications
+2024-04-03 22:18:08,045 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-25 - Rotating notifications up to: 1
+2024-04-03 22:18:08,046 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-25 - Rotating notifications, handling 0 rows
+2024-04-03 22:18:08,047 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-25 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:18:09,654 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-25 - Dropped 0 items from caches
+2024-04-03 22:18:38,046 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-26 - Rotating notifications
+2024-04-03 22:18:38,047 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-26 - Rotating notifications up to: 1
+2024-04-03 22:18:38,047 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-26 - Rotating notifications, handling 0 rows
+2024-04-03 22:18:38,048 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-26 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:18:39,657 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-26 - Dropped 0 items from caches
+2024-04-03 22:19:08,048 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-27 - Rotating notifications
+2024-04-03 22:19:08,049 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-27 - Rotating notifications up to: 1
+2024-04-03 22:19:08,049 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-27 - Rotating notifications, handling 0 rows
+2024-04-03 22:19:08,052 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-27 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:19:09,656 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-27 - Dropped 0 items from caches
+2024-04-03 22:19:38,059 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-28 - Rotating notifications
+2024-04-03 22:19:38,060 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-28 - Rotating notifications up to: 1
+2024-04-03 22:19:38,061 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-28 - Rotating notifications, handling 0 rows
+2024-04-03 22:19:38,071 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-28 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:19:39,654 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-28 - Dropped 0 items from caches
+2024-04-03 22:20:08,045 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-29 - Rotating notifications
+2024-04-03 22:20:08,045 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-29 - Rotating notifications up to: 1
+2024-04-03 22:20:08,046 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-29 - Rotating notifications, handling 0 rows
+2024-04-03 22:20:08,047 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-29 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:20:09,654 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-29 - Dropped 0 items from caches
+2024-04-03 22:20:09,838 - synapse.storage.databases.main.metrics - 399 - INFO - generate_user_daily_visits-2 - Calling _generate_user_daily_visits
+2024-04-03 22:20:38,046 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-30 - Rotating notifications
+2024-04-03 22:20:38,047 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-30 - Rotating notifications up to: 1
+2024-04-03 22:20:38,047 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-30 - Rotating notifications, handling 0 rows
+2024-04-03 22:20:38,048 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-30 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:20:39,654 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-30 - Dropped 0 items from caches
+2024-04-03 22:21:08,048 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-31 - Rotating notifications
+2024-04-03 22:21:08,049 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-31 - Rotating notifications up to: 1
+2024-04-03 22:21:08,049 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-31 - Rotating notifications, handling 0 rows
+2024-04-03 22:21:08,051 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-31 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:21:09,657 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-31 - Dropped 0 items from caches
+2024-04-03 22:21:38,076 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-32 - Rotating notifications
+2024-04-03 22:21:38,085 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-32 - Rotating notifications up to: 1
+2024-04-03 22:21:38,086 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-32 - Rotating notifications, handling 0 rows
+2024-04-03 22:21:38,096 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-32 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:21:39,655 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-32 - Dropped 0 items from caches
+2024-04-03 22:22:08,049 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-33 - Rotating notifications
+2024-04-03 22:22:08,051 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-33 - Rotating notifications up to: 1
+2024-04-03 22:22:08,052 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-33 - Rotating notifications, handling 0 rows
+2024-04-03 22:22:08,053 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-33 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:22:09,659 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-33 - Dropped 0 items from caches
+2024-04-03 22:22:38,051 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-34 - Rotating notifications
+2024-04-03 22:22:38,053 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-34 - Rotating notifications up to: 1
+2024-04-03 22:22:38,060 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-34 - Rotating notifications, handling 0 rows
+2024-04-03 22:22:38,068 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-34 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:22:39,669 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-34 - Dropped 0 items from caches
+2024-04-03 22:23:08,050 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-35 - Rotating notifications
+2024-04-03 22:23:08,052 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-35 - Rotating notifications up to: 1
+2024-04-03 22:23:08,052 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-35 - Rotating notifications, handling 0 rows
+2024-04-03 22:23:08,054 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-35 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:23:09,655 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-35 - Dropped 0 items from caches
+2024-04-03 22:23:27,946 - synapse.handlers.register - 515 - INFO - POST-85 - Auto-joining @6:matrix.workadventure.localhost to #exampleroom:example.com
+2024-04-03 22:23:37,981 - synapse.http.federation.matrix_federation_agent - 371 - INFO - POST-85 - Failed to connect to example.com:8448: HostnameAddress(hostname=b'example.com', port=8448)
+2024-04-03 22:23:37,985 - synapse.http.matrixfederationclient - 799 - INFO - POST-85 - {GET-O-13} [example.com] Request failed: GET matrix-federation://example.com/_matrix/federation/v1/query/directory?room_alias=%23exampleroom%3Aexample.com: ConnectingCancelledError(HostnameAddress(hostname=b'example.com', port=8448))
+2024-04-03 22:23:37,986 - synapse.handlers.register - 593 - ERROR - POST-85 - Failed to join new user to '#exampleroom:example.com': SynapseError('502: Failed to fetch alias')
+2024-04-03 22:23:37,989 - synapse.handlers.register - 515 - INFO - POST-85 - Auto-joining @6:matrix.workadventure.localhost to #anotherexampleroom:example.com
+2024-04-03 22:23:38,057 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-36 - Rotating notifications
+2024-04-03 22:23:38,058 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-36 - Rotating notifications up to: 1
+2024-04-03 22:23:38,059 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-36 - Rotating notifications, handling 0 rows
+2024-04-03 22:23:38,061 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-36 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:23:39,656 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-36 - Dropped 0 items from caches
+2024-04-03 22:23:48,001 - synapse.http.federation.matrix_federation_agent - 371 - INFO - POST-85 - Failed to connect to example.com:8448: HostnameAddress(hostname=b'example.com', port=8448)
+2024-04-03 22:23:48,003 - synapse.http.matrixfederationclient - 799 - INFO - POST-85 - {GET-O-14} [example.com] Request failed: GET matrix-federation://example.com/_matrix/federation/v1/query/directory?room_alias=%23anotherexampleroom%3Aexample.com: ConnectingCancelledError(HostnameAddress(hostname=b'example.com', port=8448))
+2024-04-03 22:23:48,003 - synapse.handlers.register - 593 - ERROR - POST-85 - Failed to join new user to '#anotherexampleroom:example.com': SynapseError('502: Failed to fetch alias')
+2024-04-03 22:23:48,029 - synapse.access.http.8008 - 472 - INFO - POST-85 - 192.168.65.1 - 8008 - {None} Processed request: 20.292sec/0.001sec (0.139sec, 0.023sec) (0.011sec/0.150sec/7) 478B 200 "POST /_matrix/client/v3/register?kind=guest HTTP/1.1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" [0 dbevts]
+2024-04-03 22:24:08,046 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-37 - Rotating notifications
+2024-04-03 22:24:08,047 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-37 - Rotating notifications up to: 1
+2024-04-03 22:24:08,048 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-37 - Rotating notifications, handling 0 rows
+2024-04-03 22:24:08,049 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-37 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:24:09,656 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-37 - Dropped 0 items from caches
+2024-04-03 22:24:38,047 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-38 - Rotating notifications
+2024-04-03 22:24:38,048 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-38 - Rotating notifications up to: 1
+2024-04-03 22:24:38,049 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-38 - Rotating notifications, handling 0 rows
+2024-04-03 22:24:38,051 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-38 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:24:39,654 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-38 - Dropped 0 items from caches
+2024-04-03 22:24:48,038 - twisted - 282 - INFO - sentinel - Timing out client: IPv6Address(type='TCP', host='::ffff:172.31.0.5', port=44330, flowInfo=0, scopeID=0)
+2024-04-03 22:25:08,049 - synapse.storage.databases.main.event_push_actions - 1167 - INFO - event_push_action_stream_orderings-1 - Searching for stream ordering 1 month ago
+2024-04-03 22:25:08,052 - synapse.storage.databases.main.event_push_actions - 1171 - INFO - event_push_action_stream_orderings-1 - Found stream ordering 1 month ago: it's 0
+2024-04-03 22:25:08,052 - synapse.storage.databases.main.event_push_actions - 1174 - INFO - event_push_action_stream_orderings-1 - Searching for stream ordering 1 day ago
+2024-04-03 22:25:08,052 - synapse.storage.databases.main.event_push_actions - 1178 - INFO - event_push_action_stream_orderings-1 - Found stream ordering 1 day ago: it's 0
+2024-04-03 22:25:08,054 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-39 - Rotating notifications
+2024-04-03 22:25:08,054 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-39 - Rotating notifications up to: 1
+2024-04-03 22:25:08,054 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-39 - Rotating notifications, handling 0 rows
+2024-04-03 22:25:08,055 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-39 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:25:09,655 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-39 - Dropped 0 items from caches
+2024-04-03 22:25:09,835 - synapse.storage.databases.main.metrics - 399 - INFO - generate_user_daily_visits-3 - Calling _generate_user_daily_visits
+2024-04-03 22:25:24,284 - synapse.handlers.register - 515 - INFO - POST-94 - Auto-joining @7:matrix.workadventure.localhost to #exampleroom:example.com
+2024-04-03 22:25:34,337 - synapse.http.federation.matrix_federation_agent - 371 - INFO - POST-94 - Failed to connect to example.com:8448: HostnameAddress(hostname=b'example.com', port=8448)
+2024-04-03 22:25:34,340 - synapse.http.matrixfederationclient - 799 - INFO - POST-94 - {GET-O-15} [example.com] Request failed: GET matrix-federation://example.com/_matrix/federation/v1/query/directory?room_alias=%23exampleroom%3Aexample.com: ConnectingCancelledError(HostnameAddress(hostname=b'example.com', port=8448))
+2024-04-03 22:25:34,341 - synapse.handlers.register - 593 - ERROR - POST-94 - Failed to join new user to '#exampleroom:example.com': SynapseError('502: Failed to fetch alias')
+2024-04-03 22:25:34,342 - synapse.handlers.register - 515 - INFO - POST-94 - Auto-joining @7:matrix.workadventure.localhost to #anotherexampleroom:example.com
+2024-04-03 22:25:38,048 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-40 - Rotating notifications
+2024-04-03 22:25:38,049 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-40 - Rotating notifications up to: 1
+2024-04-03 22:25:38,049 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-40 - Rotating notifications, handling 0 rows
+2024-04-03 22:25:38,050 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-40 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:25:39,655 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-40 - Dropped 0 items from caches
+2024-04-03 22:25:44,376 - synapse.http.federation.matrix_federation_agent - 371 - INFO - POST-94 - Failed to connect to example.com:8448: HostnameAddress(hostname=b'example.com', port=8448)
+2024-04-03 22:25:44,381 - synapse.http.matrixfederationclient - 799 - INFO - POST-94 - {GET-O-16} [example.com] Request failed: GET matrix-federation://example.com/_matrix/federation/v1/query/directory?room_alias=%23anotherexampleroom%3Aexample.com: ConnectingCancelledError(HostnameAddress(hostname=b'example.com', port=8448))
+2024-04-03 22:25:44,382 - synapse.handlers.register - 593 - ERROR - POST-94 - Failed to join new user to '#anotherexampleroom:example.com': SynapseError('502: Failed to fetch alias')
+2024-04-03 22:25:44,401 - synapse.access.http.8008 - 472 - INFO - POST-94 - 192.168.65.1 - 8008 - {None} Processed request: 20.235sec/0.001sec (0.156sec, 0.017sec) (0.006sec/0.096sec/7) 478B 200 "POST /_matrix/client/v3/register?kind=guest HTTP/1.1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" [0 dbevts]
+2024-04-03 22:26:08,050 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-41 - Rotating notifications
+2024-04-03 22:26:08,051 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-41 - Rotating notifications up to: 1
+2024-04-03 22:26:08,053 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-41 - Rotating notifications, handling 0 rows
+2024-04-03 22:26:08,054 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-41 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:26:09,658 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-41 - Dropped 0 items from caches
+2024-04-03 22:26:38,051 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-42 - Rotating notifications
+2024-04-03 22:26:38,053 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-42 - Rotating notifications up to: 1
+2024-04-03 22:26:38,054 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-42 - Rotating notifications, handling 0 rows
+2024-04-03 22:26:38,056 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-42 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:26:39,667 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-42 - Dropped 0 items from caches
+2024-04-03 22:26:44,418 - twisted - 282 - INFO - sentinel - Timing out client: IPv6Address(type='TCP', host='::ffff:172.31.0.5', port=36526, flowInfo=0, scopeID=0)
+2024-04-03 22:27:08,045 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-43 - Rotating notifications
+2024-04-03 22:27:08,046 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-43 - Rotating notifications up to: 1
+2024-04-03 22:27:08,046 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-43 - Rotating notifications, handling 0 rows
+2024-04-03 22:27:08,047 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-43 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:27:09,655 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-43 - Dropped 0 items from caches
+2024-04-03 22:27:38,046 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-44 - Rotating notifications
+2024-04-03 22:27:38,047 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-44 - Rotating notifications up to: 1
+2024-04-03 22:27:38,048 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-44 - Rotating notifications, handling 0 rows
+2024-04-03 22:27:38,051 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-44 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:27:39,656 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-44 - Dropped 0 items from caches
+2024-04-03 22:28:08,047 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-45 - Rotating notifications
+2024-04-03 22:28:08,048 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-45 - Rotating notifications up to: 1
+2024-04-03 22:28:08,048 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-45 - Rotating notifications, handling 0 rows
+2024-04-03 22:28:08,050 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-45 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:28:09,657 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-45 - Dropped 0 items from caches
+2024-04-03 22:28:38,060 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-46 - Rotating notifications
+2024-04-03 22:28:38,061 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-46 - Rotating notifications up to: 1
+2024-04-03 22:28:38,061 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-46 - Rotating notifications, handling 0 rows
+2024-04-03 22:28:38,062 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-46 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:28:39,655 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-46 - Dropped 0 items from caches
+2024-04-03 22:29:08,047 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-47 - Rotating notifications
+2024-04-03 22:29:08,048 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-47 - Rotating notifications up to: 1
+2024-04-03 22:29:08,048 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-47 - Rotating notifications, handling 0 rows
+2024-04-03 22:29:08,049 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-47 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:29:09,655 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-47 - Dropped 0 items from caches
+2024-04-03 22:29:38,046 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-48 - Rotating notifications
+2024-04-03 22:29:38,047 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-48 - Rotating notifications up to: 1
+2024-04-03 22:29:38,047 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-48 - Rotating notifications, handling 0 rows
+2024-04-03 22:29:38,048 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-48 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:29:39,655 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-48 - Dropped 0 items from caches
+2024-04-03 22:29:51,939 - synapse.handlers.register - 515 - INFO - POST-114 - Auto-joining @8:matrix.workadventure.localhost to #exampleroom:example.com
+2024-04-03 22:30:02,031 - synapse.http.federation.matrix_federation_agent - 371 - INFO - POST-114 - Failed to connect to example.com:8448: HostnameAddress(hostname=b'example.com', port=8448)
+2024-04-03 22:30:02,034 - synapse.http.matrixfederationclient - 799 - INFO - POST-114 - {GET-O-17} [example.com] Request failed: GET matrix-federation://example.com/_matrix/federation/v1/query/directory?room_alias=%23exampleroom%3Aexample.com: ConnectingCancelledError(HostnameAddress(hostname=b'example.com', port=8448))
+2024-04-03 22:30:02,034 - synapse.handlers.register - 593 - ERROR - POST-114 - Failed to join new user to '#exampleroom:example.com': SynapseError('502: Failed to fetch alias')
+2024-04-03 22:30:02,036 - synapse.handlers.register - 515 - INFO - POST-114 - Auto-joining @8:matrix.workadventure.localhost to #anotherexampleroom:example.com
+2024-04-03 22:30:08,046 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-49 - Rotating notifications
+2024-04-03 22:30:08,048 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-49 - Rotating notifications up to: 1
+2024-04-03 22:30:08,049 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-49 - Rotating notifications, handling 0 rows
+2024-04-03 22:30:08,050 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-49 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:30:09,655 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-49 - Dropped 0 items from caches
+2024-04-03 22:30:09,834 - synapse.storage.databases.main.metrics - 399 - INFO - generate_user_daily_visits-4 - Calling _generate_user_daily_visits
+2024-04-03 22:30:12,048 - synapse.http.federation.matrix_federation_agent - 371 - INFO - POST-114 - Failed to connect to example.com:8448: HostnameAddress(hostname=b'example.com', port=8448)
+2024-04-03 22:30:12,050 - synapse.http.matrixfederationclient - 799 - INFO - POST-114 - {GET-O-18} [example.com] Request failed: GET matrix-federation://example.com/_matrix/federation/v1/query/directory?room_alias=%23anotherexampleroom%3Aexample.com: ConnectingCancelledError(HostnameAddress(hostname=b'example.com', port=8448))
+2024-04-03 22:30:12,051 - synapse.handlers.register - 593 - ERROR - POST-114 - Failed to join new user to '#anotherexampleroom:example.com': SynapseError('502: Failed to fetch alias')
+2024-04-03 22:30:12,076 - synapse.access.http.8008 - 472 - INFO - POST-114 - 192.168.65.1 - 8008 - {None} Processed request: 20.345sec/0.001sec (0.180sec, 0.022sec) (0.013sec/0.164sec/7) 478B 200 "POST /_matrix/client/v3/register?kind=guest HTTP/1.1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" [0 dbevts]
+2024-04-03 22:30:38,074 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-50 - Rotating notifications
+2024-04-03 22:30:38,075 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-50 - Rotating notifications up to: 1
+2024-04-03 22:30:38,075 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-50 - Rotating notifications, handling 0 rows
+2024-04-03 22:30:38,076 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-50 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:30:39,657 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-50 - Dropped 0 items from caches
+2024-04-03 22:31:08,056 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-51 - Rotating notifications
+2024-04-03 22:31:08,057 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-51 - Rotating notifications up to: 1
+2024-04-03 22:31:08,057 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-51 - Rotating notifications, handling 0 rows
+2024-04-03 22:31:08,058 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-51 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:31:09,655 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-51 - Dropped 0 items from caches
+2024-04-03 22:31:12,080 - twisted - 282 - INFO - sentinel - Timing out client: IPv6Address(type='TCP', host='::ffff:172.31.0.5', port=48248, flowInfo=0, scopeID=0)
+2024-04-03 22:31:34,345 - synapse.http.server - 130 - INFO - POST-123 - <XForwardedForRequest at 0xffff8d366810 method='POST' uri='/_matrix/client/v3/login' clientproto='HTTP/1.1' site='8008'> SynapseError: 403 - Invalid login token
+2024-04-03 22:31:34,347 - synapse.access.http.8008 - 472 - INFO - POST-123 - 192.168.65.1 - 8008 - {None} Processed request: 0.031sec/0.002sec (0.021sec, 0.000sec) (0.003sec/0.003sec/1) 55B 403 "POST /_matrix/client/v3/login HTTP/1.1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" [0 dbevts]
+2024-04-03 22:31:38,044 - synapse.storage.databases.main.event_push_actions - 1321 - INFO - rotate_notifs-52 - Rotating notifications
+2024-04-03 22:31:38,045 - synapse.storage.databases.main.event_push_actions - 1525 - INFO - rotate_notifs-52 - Rotating notifications up to: 1
+2024-04-03 22:31:38,046 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-52 - Rotating notifications, handling 0 rows
+2024-04-03 22:31:38,048 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-52 - Rotating notifications, deleted 0 push actions
+2024-04-03 22:31:39,658 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-52 - Dropped 0 items from caches

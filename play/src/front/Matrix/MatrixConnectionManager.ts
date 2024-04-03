@@ -58,7 +58,6 @@ async function instantiateMatrixClient(url: string, userUuid: string): Promise<v
     if (accessToken === null && refreshToken === null && matrixLoginToken === undefined) {
         // No access token, no refresh token, no login token. We can't connect.
         //guest access
-        debugger;
         const client  = createClient({
             baseUrl : url
         });
@@ -67,9 +66,14 @@ async function instantiateMatrixClient(url: string, userUuid: string): Promise<v
             .registerGuest({
                 body: {
                     initial_device_display_name: localUserStore.getName()||"",
+                    deviceId,
+                    refresh_token : true,
                     
                 },
             })
+            
+            matrixLoginToken = creds.access_token;
+            userId = creds.user_id;
         }catch(err){
             logger.error("Failed to register as guest", err);
 
