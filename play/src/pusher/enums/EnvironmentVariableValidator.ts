@@ -87,7 +87,6 @@ export const EnvironmentVariables = z.object({
     POSTHOG_API_KEY: z.string().optional(),
     POSTHOG_URL: z.string().url().optional().or(z.literal("")),
     FALLBACK_LOCALE: z.string().optional(),
-    CHAT_URL: AbsoluteOrRelativeUrl,
     OPID_WOKA_NAME_POLICY: OpidWokaNamePolicy.optional(),
     OPID_TAGS_CLAIM: z.string().optional(),
     ENABLE_REPORT_ISSUES_MENU: BoolAsString.optional().transform((val) => toBool(val, false)),
@@ -147,7 +146,7 @@ export const EnvironmentVariables = z.object({
     MATRIX_PUBLIC_URI: z.string().optional(),
 
     EMBEDLY_KEY: z.string().optional(),
-    EJABBERD_WS_URI:  z.string().optional(),
+    EJABBERD_WS_URI: z.string().optional(),
 });
 
 export type EnvironmentVariables = z.infer<typeof EnvironmentVariables>;
