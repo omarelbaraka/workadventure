@@ -76,11 +76,16 @@ describe("SpaceFilter", () => {
         it("should add user when user is not exist in list  ", () => {
             const spaceFilterName = "space-filter-name";
             const spaceName = "space-name";
-            const user: SpaceUser = {};
+            const id = 0;
+            const user: SpaceUserExtended = {
+                id,
+            };
+
             const spaceFilter: SpaceFilterInterface = new SpaceFilter(spaceFilterName, spaceName);
             spaceFilter.addUser(user);
-            expect(spaceFilter.users).toContain(user);
+            expect(get(spaceFilter.users).has(user.id)).toBeTruthy();
         });
+
         it("should not overwrite user when you add a new user and he already exist", () => {
             const spaceFilterName = "space-filter-name";
             const spaceName = "space-name";
@@ -107,8 +112,10 @@ describe("SpaceFilter", () => {
             );
             spaceFilter.addUser(userWithSameID);
 
-            expect(get(spaceFilter.users)).toContain(user);
-            expect(get(spaceFilter.users)).not.toContain(userWithSameID);
+            const userInStore = get(spaceFilter.users).get(id);
+
+            expect(userInStore?.id).toEqual(id);
+            expect(userInStore?.name).toBeUndefined();
         });
     });
     describe("updateUserData", () => {
