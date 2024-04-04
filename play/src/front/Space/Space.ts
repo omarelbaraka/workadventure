@@ -88,16 +88,17 @@ export class Space implements SpaceInterface {
         return Array.from(this.filters.values());
     }
 
-    getSpaceFilter(filterName: string): SpaceFilterInterface | undefined {
-        if (this.filters.has(filterName)) {
-            return this.filters.get(filterName);
+    getSpaceFilter(filterName: string): SpaceFilterInterface {
+        const spaceFilter = this.filters.get(filterName);
+        if (!spaceFilter) {
+            throw new Error("Something went wrong with filterName");
         }
-        return undefined;
+        return spaceFilter;
     }
 
     stopWatching(filterName: string) {
-        if (!this.filters.has(filterName)) throw new SpaceFilterDoesNotExistError(this.name, filterName);
-        const filter: SpaceFilterInterface = this.filters.get(filterName);
+        const filter: SpaceFilterInterface | undefined = this.filters.get(filterName);
+        if (!filter) throw new SpaceFilterDoesNotExistError(this.name, filterName);
         filter.destroy();
         this.filters.delete(filterName);
     }
