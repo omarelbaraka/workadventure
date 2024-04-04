@@ -9,13 +9,13 @@ vi.mock("../../Phaser/Entity/CharacterLayerManager", async () => {
 });
 
 import { SpaceFilterMessage, SpaceUser } from "@workadventure/messages";
+import { Writable, get, writable } from "svelte/store";
 import {
     SpaceFilterInterface,
     SpaceFilter,
     Filter,
     SpaceUserExtended,
 } from "../SpaceFilter/SpaceFilter";
-import { Writable, get, writable } from "svelte/store";
 
 describe("SpaceFilter", () => {
     describe("userExist", () => {

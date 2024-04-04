@@ -1,7 +1,6 @@
 import { Subject } from "rxjs";
-import { availabilityStatusToJSON, XmppSettingsMessage } from "@workadventure/messages";
-import { KLAXOON_ACTIVITY_PICKER_EVENT, ChatMessage, BanEvent,Color } from "@workadventure/shared-utils";
-import { get } from "svelte/store";
+import { availabilityStatusToJSON } from "@workadventure/messages";
+import { BanEvent, ChatMessage, ChatMessageTypes, KLAXOON_ACTIVITY_PICKER_EVENT } from "@workadventure/shared-utils";
 import { HtmlUtils } from "../WebRtc/HtmlUtils";
 import {
     additionnalButtonsMenu,
@@ -17,6 +16,10 @@ import { analyticsClient } from "../Administration/AnalyticsClient";
 import { bannerStore, requestVisitCardsStore } from "../Stores/GameStore";
 import { modalIframeStore, modalVisibilityStore } from "../Stores/ModalStore";
 import { connectionManager } from "../Connection/ConnectionManager";
+import { chatConnectionManager } from "../Chat/Connection/ChatConnectionManager";
+import { mucRoomsStore } from "../Chat/Stores/MucRoomsStore";
+import { newChatMessageSubject } from "../Stores/ChatStore";
+import { chatMessagesStore } from "../Chat/Stores/ChatStore";
 import type { EnterLeaveEvent } from "./Events/EnterLeaveEvent";
 import type { OpenPopupEvent } from "./Events/OpenPopupEvent";
 import type { OpenTabEvent } from "./Events/OpenTabEvent";
@@ -54,13 +57,6 @@ import type { AddPlayerEvent } from "./Events/AddPlayerEvent";
 import { ModalEvent } from "./Events/ModalEvent";
 import { AddButtonActionBarEvent } from "./Events/Ui/ButtonActionBarEvent";
 import { ReceiveEventEvent } from "./Events/ReceiveEventEvent";
-import { chatConnectionManager } from "../Chat/Connection/ChatConnectionManager";
-import { mucRoomsStore } from "../Chat/Stores/MucRoomsStore";
-import {ChatMessageTypes } from "@workadventure/shared-utils";
-import { newChatMessageSubject } from "../Stores/ChatStore";
-import { chatMessagesStore } from "../Chat/Stores/ChatStore";
-
-import { FirstMatrixPasswordEvent } from "./Events/FirstMatrixPasswordEvent";
 
 type AnswererCallback<T extends keyof IframeQueryMap> = (
     query: IframeQueryMap[T]["query"],
@@ -218,9 +214,7 @@ class IframeListener {
     private readonly scripts = new Map<string, HTMLIFrameElement>();
 
     private chatIframe: HTMLIFrameElement | null = null;
-    private chatReady =false;
-
-
+    private chatReady = false;
 
     private sendPlayerMove = false;
 
@@ -374,7 +368,7 @@ class IframeListener {
                         this._openChatStream.next(iframeEvent.data);
                     } else if (iframeEvent.type === "closeChat") {
                         this._closeChatStream.next(iframeEvent.data);
-                    } else if (iframeEvent.type === "addPersonnalMessage"){
+                    } else if (iframeEvent.type === "addPersonnalMessage") {
                         this._addPersonnalMessageStream.next(iframeEvent.data);
                     } else if (iframeEvent.type === "newChatMessageWritingStatus") {
                         this._newChatMessageWritingStatusStream.next(iframeEvent.data);
@@ -527,9 +521,8 @@ class IframeListener {
                     } else if (iframeEvent.type == "restoreInviteUserButton") {
                         this._inviteUserButtonStream.next(true);
                     } else if (iframeEvent.type == "chatReady") {
-                        console.log('chatReady')
-                    }
-                    else {
+                        console.log("chatReady");
+                    } else {
                         // Keep the line below. It will throw an error if we forget to handle one of the possible values.
                         const _exhaustiveCheck: never = iframeEvent;
                     }
@@ -669,8 +662,6 @@ class IframeListener {
 
         this.scripts.delete(scriptUrl);
     }
-
-
 
     /**
      * @param message The message to dispatch
@@ -904,14 +895,8 @@ class IframeListener {
         } else if (!connectionManager.currentRoom.enableChat) {
             return;
         }
-        (await chatConnectionManager.connectionPromise).joinMuc(
-            name,
-            url,
-            type,
-            subscribe
-        );
+        (await chatConnectionManager.connectionPromise).joinMuc(name, url, type, subscribe);
     }
-
 
     sendMessageToChatIframe(chatMessage: ChatMessage) {
         if (chatMessage.text == undefined) {
@@ -919,11 +904,7 @@ class IframeListener {
         }
         const mucRoomDefault = mucRoomsStore.getDefaultRoom();
         let userData = undefined;
-        if (
-            mucRoomDefault &&
-            chatMessage.author &&
-            chatMessage.author.jid !== "fake"
-        ) {
+        if (mucRoomDefault && chatMessage.author && chatMessage.author.jid !== "fake") {
             try {
                 userData = mucRoomDefault.getUserByJid(chatMessage.author.jid);
             } catch (e) {
@@ -948,13 +929,11 @@ class IframeListener {
         }
     }
 
-
     sendButtonActionBarTriggered(buttonActionBar: AddButtonActionBarEvent): void {
         this.postMessage({
             type: "buttonActionBarTrigger",
             data: buttonActionBar,
         });
-
     }
     sendModalCloseTriggered(modal: ModalEvent): void {
         this.postMessage({
@@ -963,7 +942,6 @@ class IframeListener {
         });
     }
     // end delete >>
-
 
     /**
      * Sends the message... to all allowed iframes and not the chat.
@@ -1034,7 +1012,6 @@ class IframeListener {
             this.chatIframe = null;
         }
     }
-
 
     /*dispatchScriptableEventToOtherIframes(
         key: string,

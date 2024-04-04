@@ -6,10 +6,10 @@
     import { MucRoom } from "../Xmpp/MucRoom";
     import { User } from "../Xmpp/AbstractRoom";
     import { LL } from "../../../i18n/i18n-svelte";
-    import ChatUser from "./ChatUser.svelte";
-    import Loader from "./Loader.svelte";
     import { shownRoomListStore } from "../Stores/ChatStore";
     import { connectionManager } from "../../Connection/ConnectionManager";
+    import ChatUser from "./ChatUser.svelte";
+    import Loader from "./Loader.svelte";
 
     export let mucRoom: MucRoom;
     export let searchValue: string;

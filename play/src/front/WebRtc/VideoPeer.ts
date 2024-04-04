@@ -17,6 +17,7 @@ import { apparentMediaContraintStore } from "../Stores/ApparentMediaContraintSto
 import { TrackStreamWrapperInterface } from "../Streaming/Contract/TrackStreamWrapperInterface";
 import { TrackInterface } from "../Streaming/Contract/TrackInterface";
 import { showReportScreenStore } from "../Stores/ShowReportScreenStore";
+import { iframeListener } from "../Api/IframeListener";
 import type { ConstraintMessage, ObtainedMediaStreamConstraints } from "./P2PMessages/ConstraintMessage";
 import type { UserSimplePeerInterface } from "./SimplePeer";
 import { blackListManager } from "./BlackListManager";
@@ -25,7 +26,6 @@ import { MessageStatusMessage } from "./P2PMessages/MessageStatusMessage";
 import { P2PMessage } from "./P2PMessages/P2PMessage";
 import { BlockMessage } from "./P2PMessages/BlockMessage";
 import { UnblockMessage } from "./P2PMessages/UnblockMessage";
-import { iframeListener } from "../Api/IframeListener";
 
 export type PeerStatus = "connecting" | "connected" | "error" | "closed";
 

@@ -8,10 +8,9 @@
     import { ChatState } from "stanza/Constants";
     import { JID } from "stanza";
     import { MucRoom } from "../Xmpp/MucRoom";
-    import { User, defaultColor, defaultWoka } from "../Xmpp/AbstractRoom";
+    import { defaultColor, defaultWoka, User } from "../Xmpp/AbstractRoom";
     import { LL, locale } from "../../../i18n/i18n-svelte";
-  
-    import Message from "./Content/Message.svelte";
+
     import { mucRoomsStore } from "../Stores/MucRoomsStore";
     import { chatVisibilityStore } from "../../Stores/ChatStore";
     import { userStore } from "../Stores/LocalUserStore";
@@ -20,6 +19,8 @@
     import crown from "../../../../public/static/svg/icone-premium-crown.svg";
     import { selectedMessageToReact } from "../Stores/ChatStore";
     import { ADMIN_URL } from "../../Enum/EnvironmentVariable";
+    import Message from "./Content/Message.svelte";
+
     export let mucRoom: MucRoom;
     export let formHeight: number;
 

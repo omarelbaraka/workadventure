@@ -15,7 +15,7 @@
 
     export let mucRoom: MucRoom;
     export let user: User;
-    export let searchValue: string = "";
+    export let searchValue = "";
 
     function openChat(user: User) {
         return user;

@@ -1,10 +1,10 @@
 <script lang="ts">
-    import { MoreHorizontalIcon, RefreshCwIcon, EyeIcon } from "svelte-feather-icons";
+    import { EyeIcon, MoreHorizontalIcon, RefreshCwIcon } from "svelte-feather-icons";
     import highlightWords from "highlight-words";
     import { LL } from "../../../i18n/i18n-svelte";
     import { MucRoom } from "../Xmpp/MucRoom";
-    import OnlineUsers from "./OnlineUsers.svelte";
     import { activeThreadStore } from "../Stores/ActiveThreadStore";
+    import OnlineUsers from "./OnlineUsers.svelte";
 
     export let mucRoom: MucRoom;
     export let searchValue: string;

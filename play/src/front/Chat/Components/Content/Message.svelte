@@ -19,14 +19,14 @@
     import { MucRoom } from "../../Xmpp/MucRoom";
     import { Message } from "../../Model/Message";
     import { User } from "../../Xmpp/AbstractRoom";
-    import HtmlMessage from "./HtmlMessage.svelte";
-    import File from "./File.svelte";
-    import Reactions from "./Reactions.svelte";
     import { HtmlUtils } from "../../../WebRtc/HtmlUtils";
     import { LL,locale } from "../../../../i18n/i18n-svelte";
     import { openCoWebSite } from "../../Utils";
     import { FileMessageManager } from "../../Service/FileMessageManager";
     import { selectedMessageToReact, selectedMessageToReply } from "../../Stores/ChatStore";
+    import Reactions from "./Reactions.svelte";
+    import File from "./File.svelte";
+    import HtmlMessage from "./HtmlMessage.svelte";
 
     export let mucRoom: MucRoom;
     export let message: Message;

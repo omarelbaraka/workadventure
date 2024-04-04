@@ -5,10 +5,10 @@ import * as StanzaProtocol from "stanza/protocol";
 import { ChatStateMessage, JID } from "stanza";
 import { ChatState } from "stanza/Constants";
 import { SearchableArrayStore } from "@workadventure/store-utils";
+import { Message } from "../Model/Message";
 import { WaLink, WaReceivedReactions } from "./Lib/Plugin";
 import { XmppClient } from "./XmppClient";
 import Timeout = NodeJS.Timeout;
-import { Message } from "../Model/Message";
 
 export type User = {
     name: string;

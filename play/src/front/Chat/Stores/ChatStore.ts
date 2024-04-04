@@ -4,11 +4,11 @@ import { v4 as uuid } from "uuid";
 import { ChatMessageTypes } from "@workadventure/shared-utils";
 import { User } from "../Xmpp/AbstractRoom";
 import { Message } from "../Model/Message";
+import { FileExt, UploadedFile, uploadingState } from "../Service/FileMessageManager";
+import { _newChatMessageSubject } from "../../Stores/ChatStore";
 import { mucRoomsStore, xmppServerConnectionStatusStore } from "./MucRoomsStore";
 import { userStore } from "./LocalUserStore";
-import { FileExt, UploadedFile, uploadingState } from "../Service/FileMessageManager";
 import { activeThreadStore } from "./ActiveThreadStore";
-import { _newChatMessageSubject } from "../../Stores/ChatStore";
 
 export interface ChatMessage {
     id: string;
@@ -168,7 +168,7 @@ export const loading = derived(
         !$connectionEstablishedStore || !$xmppServerConnectionStatusStore
 );
 
-export let showPart = derived(
+export const showPart = derived(
     [connectionNotAuthorizedStore, timelineActiveStore, activeThreadStore, loading],
     ([$connectionNotAuthorizedStore, $timelineActiveStore, $activeThreadStore, $loading]) => {
         if ($timelineActiveStore) {
