@@ -276,6 +276,7 @@ export class AuthenticateController extends BaseHttpController {
                 userInfo?.access_token,
                 userInfo?.username,
                 userInfo?.locale,
+                userInfo?.tags,
                 email ? matrixProvider.getBareMatrixIdFromEmail(email) : undefined
             );
 

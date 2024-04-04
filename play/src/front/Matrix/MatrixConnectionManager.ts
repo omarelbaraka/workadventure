@@ -66,12 +66,9 @@ async function instantiateMatrixClient(url: string, userUuid: string): Promise<v
             .registerGuest({
                 body: {
                     initial_device_display_name: localUserStore.getName()||"",
-                    deviceId,
                     refresh_token : true,
-                    
                 },
             })
-            
             matrixLoginToken = creds.access_token;
             userId = creds.user_id;
         }catch(err){
@@ -83,9 +80,6 @@ async function instantiateMatrixClient(url: string, userUuid: string): Promise<v
                 })
             );
         }
-
-    
-       
     }
 
     let oldUserId: string | null = null;
