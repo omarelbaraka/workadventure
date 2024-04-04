@@ -11,8 +11,8 @@
 
     const dispatch = createEventDispatcher();
     export let applications: Set<Application>;
-    export let _class: string = "";
-    export let _style: string = "";
+    export let _class = "";
+    export let _style = "";
 
     function addNewApp(app: Application) {
         dispatch("addNewApp", app);

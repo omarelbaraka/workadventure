@@ -1,26 +1,34 @@
 <script lang="ts">
     import { onDestroy, onMount } from "svelte";
-    import { Unsubscriber, derived } from "svelte/store";
+    import { Unsubscriber } from "svelte/store";
     import { MucRoom } from "../Xmpp/MucRoom";
     import { LL, locale } from "../../../i18n/i18n-svelte";
     import { localeDetector } from "../../../i18n/locales";
-    import ChatZones from "./ChatZones.svelte";
-    import ChatActiveThread from "./ChatActiveThread.svelte";
-    import ChatActiveThreadTimeLine from "./Timeline/ChatActiveThreadTimeline.svelte";
-    import Timeline from "./Timeline/Timeline.svelte";
-    import UsersList from "./UsersList.svelte";
-    import Loader from "./Loader.svelte";
-    import NeedRefresh from "./NeedRefresh.svelte";
-    import Forums from "./Forums.svelte";
-    import { mucRoomsStore, xmppServerConnectionStatusStore } from "../Stores/MucRoomsStore";
+    import { mucRoomsStore } from "../Stores/MucRoomsStore";
     import { activeThreadStore } from "../Stores/ActiveThreadStore";
     import { availabilityStatusStore } from "../../Stores/MediaStore";
     import { HtmlUtils } from "../../WebRtc/HtmlUtils";
     import { sendLogin } from "../Utils";
     import { userStore } from "../Stores/LocalUserStore";
     import { ENABLE_OPENID } from "../../Enum/EnvironmentVariable";
-    import { connectionEstablishedStore, navChat, showChatZonesStore, showForumsStore, showPart, showTimelineStore, timelineActiveStore } from "../Stores/ChatStore";
+    import {
+        connectionEstablishedStore,
+        navChat,
+        showChatZonesStore,
+        showForumsStore,
+        showPart,
+        showTimelineStore,
+        timelineActiveStore
+    } from "../Stores/ChatStore";
     import { connectionManager } from "../../Connection/ConnectionManager";
+    import Forums from "./Forums.svelte";
+    import NeedRefresh from "./NeedRefresh.svelte";
+    import Loader from "./Loader.svelte";
+    import UsersList from "./UsersList.svelte";
+    import Timeline from "./Timeline/Timeline.svelte";
+    import ChatActiveThreadTimeLine from "./Timeline/ChatActiveThreadTimeline.svelte";
+    import ChatActiveThread from "./ChatActiveThread.svelte";
+    import ChatZones from "./ChatZones.svelte";
 
     let chatWindowElement: HTMLElement;
     let handleFormBlur: { blur(): void };
@@ -29,7 +37,6 @@
 
     let defaultMucRoom: MucRoom | undefined = undefined;
     let subscribeListeners = new Array<Unsubscriber>();
-    let subscribeTotalMessagesToSee: Unsubscriber;
 
     onMount(async () => {
         if (!$locale) {

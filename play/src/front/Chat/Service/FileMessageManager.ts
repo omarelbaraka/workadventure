@@ -3,8 +3,8 @@ import { isAxiosError } from "axios";
 import { userStore } from "../Stores/LocalUserStore";
 import { ADMIN_URL, ENABLE_CHAT_UPLOAD } from "../../Enum/EnvironmentVariable";
 import { WaLink } from "../Xmpp/Lib/Plugin";
-import { uploaderManager } from "./UploaderManager";
 import { filesUploadStore } from "../Stores/ChatStore";
+import { uploaderManager } from "./UploaderManager";
 
 const _VERBOSE = true;
 

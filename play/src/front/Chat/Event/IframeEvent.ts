@@ -1,10 +1,10 @@
 import { z } from "zod";
 import { isUserData } from "@workadventure/messages";
 import {
-    KLAXOON_ACTIVITY_PICKER_EVENT,
+    isChatMessage,
     isKlaxoonEvent,
     isXmppSettingsMessageEvent,
-    isChatMessage,
+    KLAXOON_ACTIVITY_PICKER_EVENT,
 } from "@workadventure/shared-utils";
 import { isUpdateWritingStatusChatListEvent } from "@workadventure/shared-utils/src/Events/UpdateWritingStatusChatListEvent";
 import { isNotification } from "./Notification";
@@ -105,11 +105,3 @@ export const isIframeEventWrapper = z.union([
         data: z.boolean().optional().default(false),
     }),
 ]);
-
-export const isLookingLikeIframeEventWrapper = z.object({
-    type: z.string(),
-    data: z.unknown().optional(),
-    payload: z.unknown().optional(),
-});
-
-type lookingLikeIframeEventWrapper = z.infer<typeof isLookingLikeIframeEventWrapper>;

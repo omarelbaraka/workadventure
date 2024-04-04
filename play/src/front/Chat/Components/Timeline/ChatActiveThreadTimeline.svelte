@@ -19,13 +19,13 @@
     import { defaultWoka } from "../../Xmpp/AbstractRoom";
     import { chatConnectionManager } from "../../Connection/ChatConnectionManager";
     import ApplicationPicker from "../Content/ApplicationPicker.svelte";
-    import UserWriting from "./UserWriting.svelte";
     import { activeThreadStore } from "../../Stores/ActiveThreadStore";
     import { mucRoomsStore } from "../../Stores/MucRoomsStore";
     import { LL,locale } from "../../../../i18n/i18n-svelte";
     import { HtmlUtils } from "../../../WebRtc/HtmlUtils";
     import { scriptUtils } from "../../../Api/ScriptUtils";
     import { chatInputFocusStore, chatMessagesStore, chatPeerConnectionInProgress, lastTimelineMessageRead, writingStatusMessageStore } from "../../Stores/ChatStore";
+    import UserWriting from "./UserWriting.svelte";
 
     const dispatch = createEventDispatcher();
     const defaultMucRoom = mucRoomsStore.getDefaultRoom();

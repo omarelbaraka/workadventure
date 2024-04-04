@@ -10,9 +10,9 @@ import { AllSapceEventEmitter } from "./SpaceProvider/SpaceStore";
 export const WORLD_SPACE_NAME = "allWorldUser";
 
 export class Space implements SpaceInterface {
-    private name: string;
-    private spaceFilterEventEmitter: SpaceFilterEventEmitterInterface | undefined = undefined;
-    private spaceEventEmitter: SpaceEventEmitterInterface | undefined = undefined;
+    private readonly name: string;
+    private readonly spaceFilterEventEmitter: SpaceFilterEventEmitterInterface | undefined = undefined;
+    private readonly spaceEventEmitter: SpaceEventEmitterInterface | undefined = undefined;
 
     constructor(
         name: string,
@@ -89,13 +89,16 @@ export class Space implements SpaceInterface {
     }
 
     getSpaceFilter(filterName: string): SpaceFilterInterface {
-        if (this.filters.has(filterName)) return this.filters.get(filterName);
-        return undefined;
+        const spaceFilter = this.filters.get(filterName);
+        if (!spaceFilter) {
+            throw new Error("Something went wrong with filterName");
+        }
+        return spaceFilter;
     }
 
     stopWatching(filterName: string) {
-        if (!this.filters.has(filterName)) throw new SpaceFilterDoesNotExistError(this.name, filterName);
-        const filter: SpaceFilterInterface = this.filters.get(filterName);
+        const filter: SpaceFilterInterface | undefined = this.filters.get(filterName);
+        if (!filter) throw new SpaceFilterDoesNotExistError(this.name, filterName);
         filter.destroy();
         this.filters.delete(filterName);
     }

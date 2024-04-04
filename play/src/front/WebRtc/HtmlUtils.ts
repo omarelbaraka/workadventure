@@ -313,7 +313,7 @@ export class HtmlUtils {
         return p.innerHTML;
     }
 
-    public static urlify(text: string, style: string = ""): Promise<string> {
+    public static urlify(text: string, style = ""): Promise<string> {
         const urlRegex = /(https?:\/\/[^\s]+)/g;
 
         text = this.escapeHtml(text);

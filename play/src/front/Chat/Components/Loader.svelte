@@ -1,6 +1,6 @@
 <script lang="ts">
     export let text: string;
-    export let height: string = "tw-h-screen";
+    export let height = "tw-h-screen";
 </script>
 
 <div class={`tw-grid tw-place-items-center ${height} loader`}>

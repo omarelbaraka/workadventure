@@ -998,7 +998,7 @@ class AdminApi implements AdminInterface {
     }
 
     //TODO : @openapi doc
-    async getMembersOfWorld(playUri : string, searchText : string = ""): Promise<FetchMemberDataForAWorld> {
+    async getMembersOfWorld(playUri : string, searchText  = ""): Promise<FetchMemberDataForAWorld> {
         const response: { total: number; data: UserData[] } = await axios.get(
             `${ADMIN_API_URL}/api/worlds/${worldSlug}/members`,
             {

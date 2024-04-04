@@ -5,12 +5,12 @@
         CopyIcon,
         CornerDownLeftIcon,
         CornerLeftUpIcon,
+        DownloadCloudIcon,
         EyeIcon,
+        LoaderIcon,
         RefreshCwIcon,
         SmileIcon,
-        Trash2Icon,
-        DownloadCloudIcon,
-        LoaderIcon,
+        Trash2Icon
     } from "svelte-feather-icons";
     import { Writable } from "svelte/store";
     import { EmojiButton } from "@joeattardi/emoji-button";
@@ -19,14 +19,14 @@
     import { MucRoom } from "../../Xmpp/MucRoom";
     import { Message } from "../../Model/Message";
     import { User } from "../../Xmpp/AbstractRoom";
-    import HtmlMessage from "./HtmlMessage.svelte";
-    import File from "./File.svelte";
-    import Reactions from "./Reactions.svelte";
     import { HtmlUtils } from "../../../WebRtc/HtmlUtils";
-    import { LL,locale } from "../../../../i18n/i18n-svelte";
+    import { LL, locale } from "../../../../i18n/i18n-svelte";
     import { openCoWebSite } from "../../Utils";
     import { FileMessageManager } from "../../Service/FileMessageManager";
     import { selectedMessageToReact, selectedMessageToReply } from "../../Stores/ChatStore";
+    import Reactions from "./Reactions.svelte";
+    import File from "./File.svelte";
+    import HtmlMessage from "./HtmlMessage.svelte";
 
     export let mucRoom: MucRoom;
     export let message: Message;
@@ -85,9 +85,9 @@
     }
 
     function openCowebsite() {
-        if (embedLink) openCoWebSite(embedLink, true, "allowfullscreen");
+        if (embedLink) openCoWebSite(embedLink, true, "allowfullscreen").catch(error=>console.error(error));
         if (message.links)
-            message.links.forEach((link) => openCoWebSite(link.url, true, "allowfullscreen"));
+            message.links.forEach((link) => openCoWebSite(link.url, true, "allowfullscreen").catch(error=>console.error(error)));
     }
 
     function downloadAllFile() {

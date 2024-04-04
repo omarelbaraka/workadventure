@@ -7,9 +7,6 @@ import { ChatStateMessage, JID } from "stanza";
 import { ChatState, MUCAffiliation } from "stanza/Constants";
 import { SearchableArrayStore } from "@workadventure/store-utils";
 import Debug from "debug";
-import { AbstractRoom, MessageType, User } from "./AbstractRoom";
-import { XmppClient } from "./XmppClient";
-import { WaLink, WaReceivedReactions, WaUserInfo } from "./Lib/Plugin";
 import { userStore } from "../Stores/LocalUserStore";
 import { mucRoomsStore } from "../Stores/MucRoomsStore";
 import { availabilityStatusStore } from "../../Stores/MediaStore";
@@ -19,6 +16,9 @@ import { NotificationType, mediaManager } from "../../WebRtc/MediaManager";
 import { fileMessageManager } from "../Service/FileMessageManager";
 import { gameManager } from "../../Phaser/Game/GameManager";
 import { connectionManager } from "../../Connection/ConnectionManager";
+import { WaLink, WaReceivedReactions, WaUserInfo } from "./Lib/Plugin";
+import { XmppClient } from "./XmppClient";
+import { AbstractRoom, MessageType, User } from "./AbstractRoom";
 
 const debug = Debug("chat");
 
@@ -28,7 +28,7 @@ export class MucRoom extends AbstractRoom {
     private presenceStore: UsersStore;
     private canLoadOlderMessagesStore: Writable<boolean>;
     private showDisabledLoadOlderMessagesStore: Writable<boolean>;
-    private description: string = "";
+    private description = "";
     private loadingSubscribers: Writable<boolean>;
     private readyStore: Writable<boolean>;
 
@@ -82,7 +82,7 @@ export class MucRoom extends AbstractRoom {
     }
 
     // Functions used to send message to the server
-    public sendPresence(first: boolean = false) {
+    public sendPresence(first = false) {
         if (this.closed) {
             return;
         }
@@ -320,7 +320,7 @@ export class MucRoom extends AbstractRoom {
             this.readyStore.set(true);
         }
     }
-    public async sendRetrieveLastMessages(max: number = 50) {
+    public async sendRetrieveLastMessages(max = 50) {
         if (this.closed) {
             return;
         }

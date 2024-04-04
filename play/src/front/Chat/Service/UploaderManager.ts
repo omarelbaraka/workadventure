@@ -1,6 +1,6 @@
 import axios from "axios";
-import { UploadedFile } from "./FileMessageManager";
 import { UPLOADER_URL } from "../../Enum/EnvironmentVariable";
+import { UploadedFile } from "./FileMessageManager";
 
 export class UploaderManager {
     public async write(files: FileList, userRoomToken: string | undefined | null): Promise<UploadedFile[]> {

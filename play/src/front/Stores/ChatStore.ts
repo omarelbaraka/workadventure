@@ -4,10 +4,10 @@ import { ChatMessageTypes } from "@workadventure/shared-utils";
 import type { PlayerInterface } from "../Phaser/Game/PlayerInterface";
 import { iframeListener } from "../Api/IframeListener";
 import { mediaManager, NotificationType } from "../WebRtc/MediaManager";
-import { playersStore } from "./PlayersStore";
 import { mucRoomsStore } from "../Chat/Stores/MucRoomsStore";
 import { User } from "../Chat/Xmpp/AbstractRoom";
 import { chatMessagesStore } from "../Chat/Stores/ChatStore";
+import { playersStore } from "./PlayersStore";
 
 export const chatZoneLiveStore = writable(false);
 export const chatVisibilityStore = writable(false);

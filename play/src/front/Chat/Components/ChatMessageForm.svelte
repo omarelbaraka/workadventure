@@ -1,14 +1,14 @@
 <script lang="ts">
     import {
+        AlertCircleIcon,
+        ArrowRightCircleIcon,
+        CheckIcon,
+        LoaderIcon,
+        PaperclipIcon,
         SendIcon,
         SmileIcon,
-        PaperclipIcon,
-        LoaderIcon,
         Trash2Icon,
-        CheckIcon,
-        AlertCircleIcon,
-        XCircleIcon,
-        ArrowRightCircleIcon,
+        XCircleIcon
     } from "svelte-feather-icons";
     import { createEventDispatcher, onMount } from "svelte";
     import { EmojiButton } from "@joeattardi/emoji-button";
@@ -23,21 +23,27 @@
         KlaxoonEvent,
         KlaxoonException,
         KlaxoonService,
-        YoutubeService,
+        YoutubeService
     } from "@workadventure/shared-utils";
     import { MucRoom } from "../Xmpp/MucRoom";
     import { defaultWoka, User } from "../Xmpp/AbstractRoom";
     import { LL, locale } from "../../../i18n/i18n-svelte";
     import crown from "../../../../public/static/svg/icone-premium-crown.svg";
     import { chatConnectionManager } from "../Connection/ChatConnectionManager";
-    import File from "./Content/File.svelte";
-    import ApplicationPicker from "./Content/ApplicationPicker.svelte";
     import { mucRoomsStore } from "../Stores/MucRoomsStore";
     import { userStore } from "../Stores/LocalUserStore";
     import { sendLogin, sendRedirectPricing } from "../Utils";
-    import { FileExt, UploadedFile, fileMessageManager, uploadingState } from "../Service/FileMessageManager";
-    import { filesUploadStore, hasErrorUploadingFile, hasInProgressUploadingFile, mentionsUserStore, selectedMessageToReply } from "../Stores/ChatStore";
+    import { FileExt, fileMessageManager, UploadedFile, uploadingState } from "../Service/FileMessageManager";
+    import {
+        filesUploadStore,
+        hasErrorUploadingFile,
+        hasInProgressUploadingFile,
+        mentionsUserStore,
+        selectedMessageToReply
+    } from "../Stores/ChatStore";
     import { connectionManager } from "../../Connection/ConnectionManager";
+    import ApplicationPicker from "./Content/ApplicationPicker.svelte";
+    import File from "./Content/File.svelte";
 
     export let mucRoom: MucRoom;
 
