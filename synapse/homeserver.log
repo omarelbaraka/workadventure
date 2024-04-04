@@ -5872,3 +5872,411 @@ Exception: Error while initialising OIDC provider 'oidc-oidc-server-mock'
 2024-04-04 09:45:47,226 - synapse.storage.databases.main.event_push_actions - 1611 - INFO - rotate_notifs-34 - Rotating notifications, handling 0 rows
 2024-04-04 09:45:47,227 - synapse.storage.databases.main.event_push_actions - 1696 - INFO - rotate_notifs-34 - Rotating notifications, deleted 0 push actions
 2024-04-04 09:45:57,338 - synapse.util.caches.lrucache - 218 - INFO - LruCache._expire_old_entries-34 - Dropped 0 items from caches
+2024-04-04 10:31:04,492 - root - 355 - WARNING - main - ***** STARTING SERVER *****
+2024-04-04 10:31:04,496 - root - 356 - WARNING - main - Server /usr/local/lib/python3.11/site-packages/synapse/app/homeserver.py version 1.104.0
+2024-04-04 10:31:04,497 - root - 361 - WARNING - main - Copyright (c) 2023 New Vector, Inc
+2024-04-04 10:31:04,499 - root - 362 - WARNING - main - Licensed under the AGPL 3.0 license. Website: https://github.com/element-hq/synapse
+2024-04-04 10:31:04,503 - root - 365 - INFO - main - Server hostname: matrix.workadventure.localhost
+2024-04-04 10:31:04,508 - root - 366 - INFO - main - Instance name: master
+2024-04-04 10:31:04,512 - root - 367 - INFO - main - Twisted reactor: EPollReactor
+2024-04-04 10:31:04,514 - synapse.app.homeserver - 356 - INFO - main - Setting up server
+2024-04-04 10:31:04,518 - synapse.server - 345 - INFO - main - Setting up.
+2024-04-04 10:31:04,575 - synapse.storage.databases - 73 - INFO - main - [database config 'master']: Checking database server
+2024-04-04 10:31:04,576 - synapse.storage.databases - 76 - INFO - main - [database config 'master']: Preparing for databases ['main', 'state']
+2024-04-04 10:31:04,578 - synapse.storage.prepare_database - 135 - INFO - main - ['main', 'state']: Checking existing schema version
+2024-04-04 10:31:04,582 - synapse.storage.prepare_database - 139 - INFO - main - ['main', 'state']: Existing schema is 84 (+1 deltas)
+2024-04-04 10:31:04,588 - synapse.storage.databases.main - 391 - INFO - main - Checking database for consistency with configuration...
+2024-04-04 10:31:04,589 - synapse.storage.prepare_database - 433 - INFO - main - Applying schema deltas for v84
+2024-04-04 10:31:04,592 - synapse.storage.prepare_database - 568 - INFO - main - Schema now up to date
+2024-04-04 10:31:04,612 - synapse.storage.databases - 91 - INFO - main - [database config 'master']: Starting 'main' database
+2024-04-04 10:31:04,621 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for receipts_linearized(stream_id): 1
+2024-04-04 10:31:04,623 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for events(stream_ordering): 1
+2024-04-04 10:31:04,624 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for events(stream_ordering): -1
+2024-04-04 10:31:04,625 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for ex_outlier_stream(event_stream_ordering): -1
+2024-04-04 10:31:04,647 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for un_partial_stated_event_stream(stream_id): 1
+2024-04-04 10:31:04,649 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_inbox(stream_id): 1
+2024-04-04 10:31:04,650 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_federation_outbox(stream_id): 1
+2024-04-04 10:31:04,652 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for pushers(id): 1
+2024-04-04 10:31:04,654 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for deleted_pushers(stream_id): 1
+2024-04-04 10:31:04,657 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for push_rules_stream(stream_id): 1
+2024-04-04 10:31:04,665 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for room_account_data(stream_id): 1
+2024-04-04 10:31:04,683 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for account_data(stream_id): 1
+2024-04-04 10:31:04,697 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for room_tags_revisions(stream_id): 1
+2024-04-04 10:31:04,701 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for e2e_cross_signing_keys(stream_id): 1
+2024-04-04 10:31:04,703 - synapse.storage.databases.main.event_push_actions - 1167 - INFO - main - Searching for stream ordering 1 month ago
+2024-04-04 10:31:04,707 - synapse.storage.databases.main.event_push_actions - 1171 - INFO - main - Found stream ordering 1 month ago: it's 0
+2024-04-04 10:31:04,717 - synapse.storage.databases.main.event_push_actions - 1174 - INFO - main - Searching for stream ordering 1 day ago
+2024-04-04 10:31:04,721 - synapse.storage.databases.main.event_push_actions - 1178 - INFO - main - Found stream ordering 1 day ago: it's 0
+2024-04-04 10:31:04,728 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for push_rules(id): 1
+2024-04-04 10:31:04,730 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for push_rules_enable(id): 1
+2024-04-04 10:31:04,733 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for presence_stream(stream_id): 4
+2024-04-04 10:31:04,734 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for access_tokens(id): 4
+2024-04-04 10:31:04,759 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for refresh_tokens(id): 1
+2024-04-04 10:31:04,760 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for un_partial_stated_room_stream(stream_id): 1
+2024-04-04 10:31:04,765 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for event_reports(id): 1
+2024-04-04 10:31:04,766 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_stream(stream_id): 15
+2024-04-04 10:31:04,769 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for user_signature_stream(stream_id): 1
+2024-04-04 10:31:04,770 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_outbound_pokes(stream_id): 1
+2024-04-04 10:31:04,771 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_changes_in_room(stream_id): 1
+2024-04-04 10:31:04,772 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_remote_pending(stream_id): 1
+2024-04-04 10:31:04,776 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_changes_converted_stream_position(stream_id): 15
+2024-04-04 10:31:04,783 - synapse.storage.databases - 108 - INFO - main - [database config 'master']: Starting 'state' database
+2024-04-04 10:31:04,788 - synapse.storage.databases - 123 - INFO - main - [database config 'master']: prepared
+2024-04-04 10:31:04,821 - synapse.server - 348 - INFO - main - Finished setting up.
+2024-04-04 10:31:04,867 - synapse.push.pusher - 45 - INFO - main - email enable notifs: False
+2024-04-04 10:31:04,873 - synapse.federation.federation_server - 1379 - INFO - main - Registering federation EDU handler for 'm.device_list_update'
+2024-04-04 10:31:04,875 - synapse.federation.federation_server - 1399 - INFO - main - Registering federation query handler for 'profile'
+2024-04-04 10:31:04,880 - synapse.federation.federation_server - 1379 - INFO - main - Registering federation EDU handler for 'm.presence'
+2024-04-04 10:31:04,882 - synapse.federation.federation_server - 1379 - INFO - main - Registering federation EDU handler for 'm.typing'
+2024-04-04 10:31:04,883 - synapse.federation.federation_server - 1399 - INFO - main - Registering federation query handler for 'directory'
+2024-04-04 10:31:04,891 - twisted - 282 - INFO - main - Redirected stdout/stderr to logs
+2024-04-04 10:31:04,895 - synapse.app.homeserver - 179 - INFO - sentinel - Running
+2024-04-04 10:31:04,914 - synapse.app.homeserver - 36 - INFO - sentinel - Set file limit to: 1048576
+2024-04-04 10:31:04,932 - synapse.handlers.deactivate_account - 245 - INFO - user_parter_loop-0 - Starting user parter
+2024-04-04 10:31:04,979 - synapse.http.client - 426 - INFO - sentinel - Received response to GET http://oidc.workadventure.localhost/.well-known/openid-configuration: 502
+2024-04-04 10:31:04,979 - synapse.app._base - 273 - CRITICAL - sentinel - Error during startup
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/synapse/handlers/oidc.py", line 148, in load_metadata
+    await p.load_metadata()
+  File "/usr/local/lib/python3.11/site-packages/synapse/handlers/oidc.py", line 610, in load_metadata
+    return await self._provider_metadata.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/util/caches/cached_call.py", line 143, in get
+    return await self._cachedcall.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/util/caches/cached_call.py", line 113, in get
+    self._result.raiseException()
+  File "/usr/local/lib/python3.11/site-packages/twisted/python/failure.py", line 505, in raiseException
+    raise self.value.with_traceback(self.tb)
+  File "/usr/local/lib/python3.11/site-packages/twisted/internet/defer.py", line 2000, in _inlineCallbacks
+    result = context.run(gen.send, result)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/util/caches/cached_call.py", line 133, in _wrapper
+    return await f()
+           ^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/handlers/oidc.py", line 622, in _load_metadata
+    metadata_response = await self._http_client.get_json(url)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/http/client.py", line 571, in get_json
+    body = await self.get_raw(uri, args, headers=actual_headers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/http/client.py", line 663, in get_raw
+    raise HttpResponseException(
+synapse.api.errors.HttpResponseException: 502: Bad Gateway
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/synapse/app/_base.py", line 258, in wrapper
+    await cb(*args, **kwargs)
+  File "/usr/local/lib/python3.11/site-packages/synapse/app/homeserver.py", line 368, in start
+    await oidc.load_metadata()
+  File "/usr/local/lib/python3.11/site-packages/synapse/handlers/oidc.py", line 152, in load_metadata
+    raise Exception(
+Exception: Error while initialising OIDC provider 'oidc-oidc-server-mock'
+2024-04-04 10:54:22,718 - root - 355 - WARNING - main - ***** STARTING SERVER *****
+2024-04-04 10:54:22,719 - root - 356 - WARNING - main - Server /usr/local/lib/python3.11/site-packages/synapse/app/homeserver.py version 1.104.0
+2024-04-04 10:54:22,719 - root - 361 - WARNING - main - Copyright (c) 2023 New Vector, Inc
+2024-04-04 10:54:22,720 - root - 362 - WARNING - main - Licensed under the AGPL 3.0 license. Website: https://github.com/element-hq/synapse
+2024-04-04 10:54:22,721 - root - 365 - INFO - main - Server hostname: matrix.workadventure.localhost
+2024-04-04 10:54:22,722 - root - 366 - INFO - main - Instance name: master
+2024-04-04 10:54:22,723 - root - 367 - INFO - main - Twisted reactor: EPollReactor
+2024-04-04 10:54:22,726 - synapse.app.homeserver - 356 - INFO - main - Setting up server
+2024-04-04 10:54:22,727 - synapse.server - 345 - INFO - main - Setting up.
+2024-04-04 10:54:22,761 - synapse.storage.databases - 73 - INFO - main - [database config 'master']: Checking database server
+2024-04-04 10:54:22,762 - synapse.storage.databases - 76 - INFO - main - [database config 'master']: Preparing for databases ['main', 'state']
+2024-04-04 10:54:22,762 - synapse.storage.prepare_database - 135 - INFO - main - ['main', 'state']: Checking existing schema version
+2024-04-04 10:54:22,764 - synapse.storage.prepare_database - 139 - INFO - main - ['main', 'state']: Existing schema is 84 (+1 deltas)
+2024-04-04 10:54:22,767 - synapse.storage.databases.main - 391 - INFO - main - Checking database for consistency with configuration...
+2024-04-04 10:54:22,768 - synapse.storage.prepare_database - 433 - INFO - main - Applying schema deltas for v84
+2024-04-04 10:54:22,770 - synapse.storage.prepare_database - 568 - INFO - main - Schema now up to date
+2024-04-04 10:54:22,788 - synapse.storage.databases - 91 - INFO - main - [database config 'master']: Starting 'main' database
+2024-04-04 10:54:22,789 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for receipts_linearized(stream_id): 1
+2024-04-04 10:54:22,790 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for events(stream_ordering): 1
+2024-04-04 10:54:22,790 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for events(stream_ordering): -1
+2024-04-04 10:54:22,792 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for ex_outlier_stream(event_stream_ordering): -1
+2024-04-04 10:54:22,795 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for un_partial_stated_event_stream(stream_id): 1
+2024-04-04 10:54:22,798 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_inbox(stream_id): 1
+2024-04-04 10:54:22,801 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_federation_outbox(stream_id): 1
+2024-04-04 10:54:22,811 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for pushers(id): 1
+2024-04-04 10:54:22,812 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for deleted_pushers(stream_id): 1
+2024-04-04 10:54:22,818 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for push_rules_stream(stream_id): 1
+2024-04-04 10:54:22,820 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for room_account_data(stream_id): 1
+2024-04-04 10:54:22,824 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for account_data(stream_id): 1
+2024-04-04 10:54:22,826 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for room_tags_revisions(stream_id): 1
+2024-04-04 10:54:22,828 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for e2e_cross_signing_keys(stream_id): 1
+2024-04-04 10:54:22,829 - synapse.storage.databases.main.event_push_actions - 1167 - INFO - main - Searching for stream ordering 1 month ago
+2024-04-04 10:54:22,832 - synapse.storage.databases.main.event_push_actions - 1171 - INFO - main - Found stream ordering 1 month ago: it's 0
+2024-04-04 10:54:22,834 - synapse.storage.databases.main.event_push_actions - 1174 - INFO - main - Searching for stream ordering 1 day ago
+2024-04-04 10:54:22,835 - synapse.storage.databases.main.event_push_actions - 1178 - INFO - main - Found stream ordering 1 day ago: it's 0
+2024-04-04 10:54:22,837 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for push_rules(id): 1
+2024-04-04 10:54:22,837 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for push_rules_enable(id): 1
+2024-04-04 10:54:22,838 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for presence_stream(stream_id): 4
+2024-04-04 10:54:22,845 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for access_tokens(id): 4
+2024-04-04 10:54:22,847 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for refresh_tokens(id): 1
+2024-04-04 10:54:22,851 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for un_partial_stated_room_stream(stream_id): 1
+2024-04-04 10:54:22,854 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for event_reports(id): 1
+2024-04-04 10:54:22,856 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_stream(stream_id): 15
+2024-04-04 10:54:22,857 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for user_signature_stream(stream_id): 1
+2024-04-04 10:54:22,859 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_outbound_pokes(stream_id): 1
+2024-04-04 10:54:22,862 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_changes_in_room(stream_id): 1
+2024-04-04 10:54:22,866 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_remote_pending(stream_id): 1
+2024-04-04 10:54:22,867 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_changes_converted_stream_position(stream_id): 15
+2024-04-04 10:54:22,871 - synapse.storage.databases - 108 - INFO - main - [database config 'master']: Starting 'state' database
+2024-04-04 10:54:22,874 - synapse.storage.databases - 123 - INFO - main - [database config 'master']: prepared
+2024-04-04 10:54:22,880 - synapse.server - 348 - INFO - main - Finished setting up.
+2024-04-04 10:54:22,934 - synapse.push.pusher - 45 - INFO - main - email enable notifs: False
+2024-04-04 10:54:22,939 - synapse.federation.federation_server - 1379 - INFO - main - Registering federation EDU handler for 'm.device_list_update'
+2024-04-04 10:54:22,939 - synapse.federation.federation_server - 1399 - INFO - main - Registering federation query handler for 'profile'
+2024-04-04 10:54:22,940 - synapse.federation.federation_server - 1379 - INFO - main - Registering federation EDU handler for 'm.presence'
+2024-04-04 10:54:22,942 - synapse.federation.federation_server - 1379 - INFO - main - Registering federation EDU handler for 'm.typing'
+2024-04-04 10:54:22,945 - synapse.federation.federation_server - 1399 - INFO - main - Registering federation query handler for 'directory'
+2024-04-04 10:54:22,949 - twisted - 282 - INFO - main - Redirected stdout/stderr to logs
+2024-04-04 10:54:22,953 - synapse.app.homeserver - 179 - INFO - sentinel - Running
+2024-04-04 10:54:22,958 - synapse.app.homeserver - 36 - INFO - sentinel - Set file limit to: 1048576
+2024-04-04 10:54:22,965 - synapse.handlers.deactivate_account - 245 - INFO - user_parter_loop-0 - Starting user parter
+2024-04-04 10:54:23,012 - synapse.http.client - 426 - INFO - sentinel - Received response to GET http://oidc.workadventure.localhost/.well-known/openid-configuration: 502
+2024-04-04 10:54:23,021 - synapse.app._base - 273 - CRITICAL - sentinel - Error during startup
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/synapse/handlers/oidc.py", line 148, in load_metadata
+    await p.load_metadata()
+  File "/usr/local/lib/python3.11/site-packages/synapse/handlers/oidc.py", line 610, in load_metadata
+    return await self._provider_metadata.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/util/caches/cached_call.py", line 143, in get
+    return await self._cachedcall.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/util/caches/cached_call.py", line 113, in get
+    self._result.raiseException()
+  File "/usr/local/lib/python3.11/site-packages/twisted/python/failure.py", line 505, in raiseException
+    raise self.value.with_traceback(self.tb)
+  File "/usr/local/lib/python3.11/site-packages/twisted/internet/defer.py", line 2000, in _inlineCallbacks
+    result = context.run(gen.send, result)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/util/caches/cached_call.py", line 133, in _wrapper
+    return await f()
+           ^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/handlers/oidc.py", line 622, in _load_metadata
+    metadata_response = await self._http_client.get_json(url)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/http/client.py", line 571, in get_json
+    body = await self.get_raw(uri, args, headers=actual_headers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/http/client.py", line 663, in get_raw
+    raise HttpResponseException(
+synapse.api.errors.HttpResponseException: 502: Bad Gateway
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/synapse/app/_base.py", line 258, in wrapper
+    await cb(*args, **kwargs)
+  File "/usr/local/lib/python3.11/site-packages/synapse/app/homeserver.py", line 368, in start
+    await oidc.load_metadata()
+  File "/usr/local/lib/python3.11/site-packages/synapse/handlers/oidc.py", line 152, in load_metadata
+    raise Exception(
+Exception: Error while initialising OIDC provider 'oidc-oidc-server-mock'
+2024-04-04 11:46:29,384 - root - 355 - WARNING - main - ***** STARTING SERVER *****
+2024-04-04 11:46:29,386 - root - 356 - WARNING - main - Server /usr/local/lib/python3.11/site-packages/synapse/app/homeserver.py version 1.104.0
+2024-04-04 11:46:29,387 - root - 361 - WARNING - main - Copyright (c) 2023 New Vector, Inc
+2024-04-04 11:46:29,388 - root - 362 - WARNING - main - Licensed under the AGPL 3.0 license. Website: https://github.com/element-hq/synapse
+2024-04-04 11:46:29,390 - root - 365 - INFO - main - Server hostname: matrix.workadventure.localhost
+2024-04-04 11:46:29,393 - root - 366 - INFO - main - Instance name: master
+2024-04-04 11:46:29,395 - root - 367 - INFO - main - Twisted reactor: EPollReactor
+2024-04-04 11:46:29,396 - synapse.app.homeserver - 356 - INFO - main - Setting up server
+2024-04-04 11:46:29,398 - synapse.server - 345 - INFO - main - Setting up.
+2024-04-04 11:46:29,493 - synapse.storage.databases - 73 - INFO - main - [database config 'master']: Checking database server
+2024-04-04 11:46:29,496 - synapse.storage.databases - 76 - INFO - main - [database config 'master']: Preparing for databases ['main', 'state']
+2024-04-04 11:46:29,503 - synapse.storage.prepare_database - 135 - INFO - main - ['main', 'state']: Checking existing schema version
+2024-04-04 11:46:29,514 - synapse.storage.prepare_database - 139 - INFO - main - ['main', 'state']: Existing schema is 84 (+1 deltas)
+2024-04-04 11:46:29,514 - synapse.storage.databases.main - 391 - INFO - main - Checking database for consistency with configuration...
+2024-04-04 11:46:29,516 - synapse.storage.prepare_database - 433 - INFO - main - Applying schema deltas for v84
+2024-04-04 11:46:29,522 - synapse.storage.prepare_database - 568 - INFO - main - Schema now up to date
+2024-04-04 11:46:29,556 - synapse.storage.databases - 91 - INFO - main - [database config 'master']: Starting 'main' database
+2024-04-04 11:46:29,563 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for receipts_linearized(stream_id): 1
+2024-04-04 11:46:29,568 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for events(stream_ordering): 1
+2024-04-04 11:46:29,571 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for events(stream_ordering): -1
+2024-04-04 11:46:29,574 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for ex_outlier_stream(event_stream_ordering): -1
+2024-04-04 11:46:29,576 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for un_partial_stated_event_stream(stream_id): 1
+2024-04-04 11:46:29,580 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_inbox(stream_id): 1
+2024-04-04 11:46:29,582 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_federation_outbox(stream_id): 1
+2024-04-04 11:46:29,591 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for pushers(id): 1
+2024-04-04 11:46:29,601 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for deleted_pushers(stream_id): 1
+2024-04-04 11:46:29,604 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for push_rules_stream(stream_id): 1
+2024-04-04 11:46:29,606 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for room_account_data(stream_id): 1
+2024-04-04 11:46:29,611 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for account_data(stream_id): 1
+2024-04-04 11:46:29,612 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for room_tags_revisions(stream_id): 1
+2024-04-04 11:46:29,620 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for e2e_cross_signing_keys(stream_id): 1
+2024-04-04 11:46:29,621 - synapse.storage.databases.main.event_push_actions - 1167 - INFO - main - Searching for stream ordering 1 month ago
+2024-04-04 11:46:29,622 - synapse.storage.databases.main.event_push_actions - 1171 - INFO - main - Found stream ordering 1 month ago: it's 0
+2024-04-04 11:46:29,622 - synapse.storage.databases.main.event_push_actions - 1174 - INFO - main - Searching for stream ordering 1 day ago
+2024-04-04 11:46:29,625 - synapse.storage.databases.main.event_push_actions - 1178 - INFO - main - Found stream ordering 1 day ago: it's 0
+2024-04-04 11:46:29,632 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for push_rules(id): 1
+2024-04-04 11:46:29,633 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for push_rules_enable(id): 1
+2024-04-04 11:46:29,642 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for presence_stream(stream_id): 4
+2024-04-04 11:46:29,644 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for access_tokens(id): 4
+2024-04-04 11:46:29,646 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for refresh_tokens(id): 1
+2024-04-04 11:46:29,652 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for un_partial_stated_room_stream(stream_id): 1
+2024-04-04 11:46:29,654 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for event_reports(id): 1
+2024-04-04 11:46:29,658 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_stream(stream_id): 15
+2024-04-04 11:46:29,669 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for user_signature_stream(stream_id): 1
+2024-04-04 11:46:29,674 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_outbound_pokes(stream_id): 1
+2024-04-04 11:46:29,677 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_changes_in_room(stream_id): 1
+2024-04-04 11:46:29,679 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_remote_pending(stream_id): 1
+2024-04-04 11:46:29,681 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_changes_converted_stream_position(stream_id): 15
+2024-04-04 11:46:29,686 - synapse.storage.databases - 108 - INFO - main - [database config 'master']: Starting 'state' database
+2024-04-04 11:46:29,688 - synapse.storage.databases - 123 - INFO - main - [database config 'master']: prepared
+2024-04-04 11:46:29,706 - synapse.server - 348 - INFO - main - Finished setting up.
+2024-04-04 11:46:29,740 - synapse.push.pusher - 45 - INFO - main - email enable notifs: False
+2024-04-04 11:46:29,744 - synapse.federation.federation_server - 1379 - INFO - main - Registering federation EDU handler for 'm.device_list_update'
+2024-04-04 11:46:29,748 - synapse.federation.federation_server - 1399 - INFO - main - Registering federation query handler for 'profile'
+2024-04-04 11:46:29,749 - synapse.federation.federation_server - 1379 - INFO - main - Registering federation EDU handler for 'm.presence'
+2024-04-04 11:46:29,751 - synapse.federation.federation_server - 1379 - INFO - main - Registering federation EDU handler for 'm.typing'
+2024-04-04 11:46:29,753 - synapse.federation.federation_server - 1399 - INFO - main - Registering federation query handler for 'directory'
+2024-04-04 11:46:29,758 - twisted - 282 - INFO - main - Redirected stdout/stderr to logs
+2024-04-04 11:46:29,763 - synapse.app.homeserver - 179 - INFO - sentinel - Running
+2024-04-04 11:46:29,770 - synapse.app.homeserver - 36 - INFO - sentinel - Set file limit to: 1048576
+2024-04-04 11:46:29,775 - synapse.handlers.deactivate_account - 245 - INFO - user_parter_loop-0 - Starting user parter
+2024-04-04 11:46:29,798 - synapse.http.client - 426 - INFO - sentinel - Received response to GET http://oidc.workadventure.localhost/.well-known/openid-configuration: 502
+2024-04-04 11:46:29,799 - synapse.app._base - 273 - CRITICAL - sentinel - Error during startup
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/synapse/handlers/oidc.py", line 148, in load_metadata
+    await p.load_metadata()
+  File "/usr/local/lib/python3.11/site-packages/synapse/handlers/oidc.py", line 610, in load_metadata
+    return await self._provider_metadata.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/util/caches/cached_call.py", line 143, in get
+    return await self._cachedcall.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/util/caches/cached_call.py", line 113, in get
+    self._result.raiseException()
+  File "/usr/local/lib/python3.11/site-packages/twisted/python/failure.py", line 505, in raiseException
+    raise self.value.with_traceback(self.tb)
+  File "/usr/local/lib/python3.11/site-packages/twisted/internet/defer.py", line 2000, in _inlineCallbacks
+    result = context.run(gen.send, result)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/util/caches/cached_call.py", line 133, in _wrapper
+    return await f()
+           ^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/handlers/oidc.py", line 622, in _load_metadata
+    metadata_response = await self._http_client.get_json(url)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/http/client.py", line 571, in get_json
+    body = await self.get_raw(uri, args, headers=actual_headers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/http/client.py", line 663, in get_raw
+    raise HttpResponseException(
+synapse.api.errors.HttpResponseException: 502: Bad Gateway
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/synapse/app/_base.py", line 258, in wrapper
+    await cb(*args, **kwargs)
+  File "/usr/local/lib/python3.11/site-packages/synapse/app/homeserver.py", line 368, in start
+    await oidc.load_metadata()
+  File "/usr/local/lib/python3.11/site-packages/synapse/handlers/oidc.py", line 152, in load_metadata
+    raise Exception(
+Exception: Error while initialising OIDC provider 'oidc-oidc-server-mock'
+2024-04-04 12:04:26,157 - root - 355 - WARNING - main - ***** STARTING SERVER *****
+2024-04-04 12:04:26,159 - root - 356 - WARNING - main - Server /usr/local/lib/python3.11/site-packages/synapse/app/homeserver.py version 1.104.0
+2024-04-04 12:04:26,160 - root - 361 - WARNING - main - Copyright (c) 2023 New Vector, Inc
+2024-04-04 12:04:26,162 - root - 362 - WARNING - main - Licensed under the AGPL 3.0 license. Website: https://github.com/element-hq/synapse
+2024-04-04 12:04:26,163 - root - 365 - INFO - main - Server hostname: matrix.workadventure.localhost
+2024-04-04 12:04:26,164 - root - 366 - INFO - main - Instance name: master
+2024-04-04 12:04:26,165 - root - 367 - INFO - main - Twisted reactor: EPollReactor
+2024-04-04 12:04:26,166 - synapse.app.homeserver - 356 - INFO - main - Setting up server
+2024-04-04 12:04:26,168 - synapse.server - 345 - INFO - main - Setting up.
+2024-04-04 12:04:26,232 - synapse.storage.databases - 73 - INFO - main - [database config 'master']: Checking database server
+2024-04-04 12:04:26,233 - synapse.storage.databases - 76 - INFO - main - [database config 'master']: Preparing for databases ['main', 'state']
+2024-04-04 12:04:26,239 - synapse.storage.prepare_database - 135 - INFO - main - ['main', 'state']: Checking existing schema version
+2024-04-04 12:04:26,244 - synapse.storage.prepare_database - 139 - INFO - main - ['main', 'state']: Existing schema is 84 (+1 deltas)
+2024-04-04 12:04:26,244 - synapse.storage.databases.main - 391 - INFO - main - Checking database for consistency with configuration...
+2024-04-04 12:04:26,247 - synapse.storage.prepare_database - 433 - INFO - main - Applying schema deltas for v84
+2024-04-04 12:04:26,250 - synapse.storage.prepare_database - 568 - INFO - main - Schema now up to date
+2024-04-04 12:04:26,267 - synapse.storage.databases - 91 - INFO - main - [database config 'master']: Starting 'main' database
+2024-04-04 12:04:26,274 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for receipts_linearized(stream_id): 1
+2024-04-04 12:04:26,277 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for events(stream_ordering): 1
+2024-04-04 12:04:26,278 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for events(stream_ordering): -1
+2024-04-04 12:04:26,279 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for ex_outlier_stream(event_stream_ordering): -1
+2024-04-04 12:04:26,281 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for un_partial_stated_event_stream(stream_id): 1
+2024-04-04 12:04:26,282 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_inbox(stream_id): 1
+2024-04-04 12:04:26,284 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_federation_outbox(stream_id): 1
+2024-04-04 12:04:26,290 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for pushers(id): 1
+2024-04-04 12:04:26,292 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for deleted_pushers(stream_id): 1
+2024-04-04 12:04:26,293 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for push_rules_stream(stream_id): 1
+2024-04-04 12:04:26,294 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for room_account_data(stream_id): 1
+2024-04-04 12:04:26,299 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for account_data(stream_id): 1
+2024-04-04 12:04:26,303 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for room_tags_revisions(stream_id): 1
+2024-04-04 12:04:26,304 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for e2e_cross_signing_keys(stream_id): 1
+2024-04-04 12:04:26,304 - synapse.storage.databases.main.event_push_actions - 1167 - INFO - main - Searching for stream ordering 1 month ago
+2024-04-04 12:04:26,305 - synapse.storage.databases.main.event_push_actions - 1171 - INFO - main - Found stream ordering 1 month ago: it's 0
+2024-04-04 12:04:26,306 - synapse.storage.databases.main.event_push_actions - 1174 - INFO - main - Searching for stream ordering 1 day ago
+2024-04-04 12:04:26,306 - synapse.storage.databases.main.event_push_actions - 1178 - INFO - main - Found stream ordering 1 day ago: it's 0
+2024-04-04 12:04:26,307 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for push_rules(id): 1
+2024-04-04 12:04:26,309 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for push_rules_enable(id): 1
+2024-04-04 12:04:26,310 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for presence_stream(stream_id): 4
+2024-04-04 12:04:26,317 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for access_tokens(id): 4
+2024-04-04 12:04:26,318 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for refresh_tokens(id): 1
+2024-04-04 12:04:26,322 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for un_partial_stated_room_stream(stream_id): 1
+2024-04-04 12:04:26,324 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for event_reports(id): 1
+2024-04-04 12:04:26,326 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_stream(stream_id): 15
+2024-04-04 12:04:26,329 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for user_signature_stream(stream_id): 1
+2024-04-04 12:04:26,332 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_outbound_pokes(stream_id): 1
+2024-04-04 12:04:26,332 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_changes_in_room(stream_id): 1
+2024-04-04 12:04:26,333 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_remote_pending(stream_id): 1
+2024-04-04 12:04:26,334 - synapse.storage.util.id_generators - 99 - INFO - main - Initialising stream generator for device_lists_changes_converted_stream_position(stream_id): 15
+2024-04-04 12:04:26,336 - synapse.storage.databases - 108 - INFO - main - [database config 'master']: Starting 'state' database
+2024-04-04 12:04:26,337 - synapse.storage.databases - 123 - INFO - main - [database config 'master']: prepared
+2024-04-04 12:04:26,340 - synapse.server - 348 - INFO - main - Finished setting up.
+2024-04-04 12:04:26,382 - synapse.push.pusher - 45 - INFO - main - email enable notifs: False
+2024-04-04 12:04:26,386 - synapse.federation.federation_server - 1379 - INFO - main - Registering federation EDU handler for 'm.device_list_update'
+2024-04-04 12:04:26,386 - synapse.federation.federation_server - 1399 - INFO - main - Registering federation query handler for 'profile'
+2024-04-04 12:04:26,400 - synapse.federation.federation_server - 1379 - INFO - main - Registering federation EDU handler for 'm.presence'
+2024-04-04 12:04:26,405 - synapse.federation.federation_server - 1379 - INFO - main - Registering federation EDU handler for 'm.typing'
+2024-04-04 12:04:26,407 - synapse.federation.federation_server - 1399 - INFO - main - Registering federation query handler for 'directory'
+2024-04-04 12:04:26,409 - twisted - 282 - INFO - main - Redirected stdout/stderr to logs
+2024-04-04 12:04:26,417 - synapse.app.homeserver - 179 - INFO - sentinel - Running
+2024-04-04 12:04:26,428 - synapse.app.homeserver - 36 - INFO - sentinel - Set file limit to: 1048576
+2024-04-04 12:04:26,460 - synapse.handlers.deactivate_account - 245 - INFO - user_parter_loop-0 - Starting user parter
+2024-04-04 12:04:26,544 - synapse.http.client - 426 - INFO - sentinel - Received response to GET http://oidc.workadventure.localhost/.well-known/openid-configuration: 502
+2024-04-04 12:04:26,544 - synapse.app._base - 273 - CRITICAL - sentinel - Error during startup
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/synapse/handlers/oidc.py", line 148, in load_metadata
+    await p.load_metadata()
+  File "/usr/local/lib/python3.11/site-packages/synapse/handlers/oidc.py", line 610, in load_metadata
+    return await self._provider_metadata.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/util/caches/cached_call.py", line 143, in get
+    return await self._cachedcall.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/util/caches/cached_call.py", line 113, in get
+    self._result.raiseException()
+  File "/usr/local/lib/python3.11/site-packages/twisted/python/failure.py", line 505, in raiseException
+    raise self.value.with_traceback(self.tb)
+  File "/usr/local/lib/python3.11/site-packages/twisted/internet/defer.py", line 2000, in _inlineCallbacks
+    result = context.run(gen.send, result)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/util/caches/cached_call.py", line 133, in _wrapper
+    return await f()
+           ^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/handlers/oidc.py", line 622, in _load_metadata
+    metadata_response = await self._http_client.get_json(url)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/http/client.py", line 571, in get_json
+    body = await self.get_raw(uri, args, headers=actual_headers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/synapse/http/client.py", line 663, in get_raw
+    raise HttpResponseException(
+synapse.api.errors.HttpResponseException: 502: Bad Gateway
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/synapse/app/_base.py", line 258, in wrapper
+    await cb(*args, **kwargs)
+  File "/usr/local/lib/python3.11/site-packages/synapse/app/homeserver.py", line 368, in start
+    await oidc.load_metadata()
+  File "/usr/local/lib/python3.11/site-packages/synapse/handlers/oidc.py", line 152, in load_metadata
+    raise Exception(
+Exception: Error while initialising OIDC provider 'oidc-oidc-server-mock'

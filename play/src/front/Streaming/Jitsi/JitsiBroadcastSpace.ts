@@ -11,7 +11,6 @@ import { BroadcastService, jitsiLoadingStore } from "../BroadcastService";
 import { BroadcastSpace } from "../Common/BroadcastSpace";
 import { JITSI_DOMAIN, JITSI_MUC_DOMAIN, JITSI_XMPP_DOMAIN } from "../../Enum/EnvironmentVariable";
 import { SpaceInterface } from "../../Space/SpaceInterface";
-import { Space } from "../../Space/Space";
 import { LocalSpaceProviderSingleton } from "../../Space/SpaceProvider/SpaceStore";
 import { jitsiConferencesStore } from "./JitsiConferencesStore";
 import { JitsiConferenceWrapper } from "./JitsiConferenceWrapper";

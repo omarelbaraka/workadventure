@@ -1,5 +1,4 @@
 import { derived, get, writable } from "svelte/store";
-import { Subject } from "rxjs";
 import { v4 as uuid } from "uuid";
 import { ChatMessageTypes } from "@workadventure/shared-utils";
 import { User } from "../Xmpp/AbstractRoom";
@@ -88,22 +87,6 @@ function createChatMessagesStore() {
 }
 export const chatMessagesStore = createChatMessagesStore();
 
-function createChatSubMenuVisibilityStore() {
-    const { subscribe, update } = writable<string>("");
-
-    return {
-        subscribe,
-        openSubMenu(playerName: string, index: number) {
-            const id = playerName + index;
-            update((oldValue) => {
-                return oldValue === id ? "" : id;
-            });
-        },
-    };
-}
-
-
-
 export const timelineActiveStore = writable<boolean>(false);
 
 export const lastTimelineMessageRead = writable<Date>(new Date());
@@ -129,9 +112,9 @@ export const timelineMessagesToSee = derived(
         $chatMessagesStore.filter((message) => message.date > $lastTimelineMessageRead).length
 );
 
- export const totalMessagesToSee = derived(
+export const totalMessagesToSee = derived(
     [...[...get(mucRoomsStore)].map((mucRoom) => mucRoom.getCountMessagesToSee()), timelineMessagesToSee],
-    ($totalMessagesToSee) => $totalMessagesToSee.reduce((sum , number ) => sum + number, 0)
+    ($totalMessagesToSee) => $totalMessagesToSee.reduce((sum, number) => sum + number, 0)
 );
 
 export const filesUploadStore = writable<Map<string, UploadedFile | FileExt>>(
@@ -150,7 +133,6 @@ export const hasInProgressUploadingFile = derived([filesUploadStore], ([$filesUp
     )
 );
 
-
 export const connectionNotAuthorizedStore = writable<boolean>(false);
 export const connectionEstablishedStore = writable<boolean>(false);
 
@@ -160,7 +142,6 @@ export const shownRoomListStore = writable<string>("");
 export const showChatZonesStore = writable<boolean>(false);
 export const showForumsStore = writable<boolean>(false);
 export const showTimelineStore = writable<boolean>(false);
-
 
 export const loading = derived(
     [connectionEstablishedStore, xmppServerConnectionStatusStore],

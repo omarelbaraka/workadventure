@@ -1,6 +1,7 @@
 import { Subject } from "rxjs";
 import { availabilityStatusToJSON } from "@workadventure/messages";
 import { BanEvent, ChatMessage, ChatMessageTypes, KLAXOON_ACTIVITY_PICKER_EVENT } from "@workadventure/shared-utils";
+import { Subscriber } from "svelte/store";
 import { HtmlUtils } from "../WebRtc/HtmlUtils";
 import {
     additionnalButtonsMenu,
@@ -215,6 +216,8 @@ class IframeListener {
 
     private chatIframe: HTMLIFrameElement | null = null;
     private chatReady = false;
+
+    private newChatMessageUnsubscriber: Subscriber;
 
     private sendPlayerMove = false;
 
@@ -531,7 +534,7 @@ class IframeListener {
             false
         );
 
-        newChatMessageSubject.subscribe((message) => {
+        this.newChatMessageUnsubscriber = newChatMessageSubject.subscribe((message) => {
             this._addPersonnalMessageStream.next(message);
         });
     }
@@ -1011,6 +1014,7 @@ class IframeListener {
             this.unregisterIframe(this.chatIframe);
             this.chatIframe = null;
         }
+        this.newChatMessageUnsubscriber();
     }
 
     /*dispatchScriptableEventToOtherIframes(
